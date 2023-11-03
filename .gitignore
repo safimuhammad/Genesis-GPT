@@ -1,3 +1,4 @@
 # Ignore db.log and sql.db files
 db.log
 sql.db
+__pycache__
