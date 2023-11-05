@@ -1,5 +1,7 @@
 from datetime import datetime
 import uuid
+import sqlite3
+
 
 def task_formatter(task):
     """formats raw task into dict with additional info, id and datetime"""
@@ -14,6 +16,21 @@ def task_formatter(task):
     return task_obj
 
 
+
+
+def connection_handler(db):
+
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            try:
+                if db.get_connection ==None:
+                    db.create_connection()
+                    return func(*args, **kwargs)
+            except Exception as e:
+                db.logger.error(f'Error occurred: {e}')
+        return wrapper
+
+    return decorator
 
 
 
