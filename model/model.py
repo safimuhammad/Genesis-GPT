@@ -65,7 +65,6 @@ class OpenAIBrain(IModel):
         
 
 ai= OpenAIBrain(model='gpt-4-0125-preview')
-ai.api_key='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'
 
 
 prompt_temp= Template("""
