@@ -1,0 +1,120 @@
+tool= [{'name': 'parse_llm_output',
+#     'description': 'Structure the output from llm.',
+#     'parameters' : {
+#         'type': 'object',
+#         'properties':{
+#             'thoughts':{
+#                 'type': 'object',
+#                 'description':'recieves object consisting of text,reasoning,plan,criticism, speak',
+#                 'properties':{
+#                     'text':{
+#                         'type': 'string',
+#                         'description':'Your thoughts on the task'
+#                     },
+#                     'reasoning':{
+#                         'type':'string',
+#                         'description':'reasoning behind thoughts.'
+#                     },
+#                     'plan':{
+#                         'type':'string',
+#                         'description':'short bulleted\\n- list that conveys\\n- long-term plan'
+#                     },
+#                     'criticism': {
+#                         'type':'string',
+#                         'description':'constructive self-criticism'
+#                         },
+#                     'speak':{
+#                         'type':'string',
+#                         'description': 'thoughts summary to say to user'
+#                     }
+                    
+#                 }
+#             },
+#             'ability':{
+#                 'type':'object',
+#                 'description':'recieves name of abilities that are relevant to the task.',
+#                 'properties':{
+#                     'name':{
+#                         'type':'string',
+#                         'description':'ability name'
+#                     }
+#                 }
+#             }
+#         },
+#         'required':['thoughts','ability']
+#     }
+
+# }]
+
+=======================================================================
+gemini.py old prompt 
+
+ prompt_temp= Template("""
+#                     Goals: List  goals that the expert aims to achieve in order to help with the task
+#                     You should always have your thoughts laid out first, then reason with it and carefully lay out your plan with you abilities in mind.
+
+#                     Your task is:
+#                     Lets work this out in a step by step way to be sure we have the right answer.
+#                     $task
+
+        
+#                     Answer in the provided format.
+#                     Your decisions must be made independently without seeking user assistance. Play with your strengths as an LLM and pursue simple strategies.
+
+#                     You have access to the following abilities you can call:
+#                     - write_file()
+#                     - read_file()  
+                    
+#                 """)
+    
+# prompt= prompt_temp.substitute(task='Write I am safi in file named test.txt')
+# parse_llm_output= generative_models.FunctionDeclaration(
+#     name='parse_llm_output',
+#     description='Get the thoughts, reasoning, plan criticism and matching ability based on the task given, in a Structured form from llm, must receive all parameters to work.',
+#     parameters={
+#         'type': 'object',
+#         'properties':{
+#             'thoughts':{
+#                 'type': 'object',
+#                 'description':'recieves object consisting of text,reasoning,plan,criticism, speak , all of them are required for this function to work',
+#                 'properties':{
+#                     'text':{
+#                         'type': 'string',
+#                         'description':'Present Your thoughts on the task, at all times.'
+#                     },
+#                     'reasoning':{
+#                         'type':'string',
+#                         'description':'Always Explain your thoughts/opinion on the task.'
+#                     },
+#                     'plan':{
+#                         'type':'string',
+#                         'description':'Always short bulleted\\n- list that conveys\\n- long-term plan'
+#                     },
+#                     'criticism': {
+#                         'type':'string',
+#                         'description':'constructive self-criticism based on tasks.'
+#                         },
+#                     'speak':{
+#                         'type':'string',
+#                         'description': 'thoughts summary to say to user, in easily understandable words.'
+#                     }
+                    
+#                 }
+#             }, 
+
+#             'ability':{
+#                 'type':'object',
+#                 'description':'gets the name of abilities that are relevant to the task.',
+#                 'properties':{
+#                     'name_of_ability':{
+#                         'type':'string',
+#                         'description':'ability name'
+#                     },
+                    
+#                 }
+#             }
+#         },
+#         'required':['thoughts','text','reasoning','plan','criticism','speak','ability','name']
+#    }
+
+# )

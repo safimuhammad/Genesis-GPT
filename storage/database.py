@@ -130,10 +130,10 @@ class SQLstore(IDatabase):
 
     
 
-db= SQLstore()
+# db= SQLstore()
 
 # db.create_connection()
-db.delete_task('150e4457-69d4-4707-bb7f-38ab2bb476c5')
+# db.delete_task('150e4457-69d4-4707-bb7f-38ab2bb476c5')
     # print(db.get_task('150e4457-69d4-4707-bb7f-38ab2bb476c5'))
     # print(db.get_all_tasks())
 

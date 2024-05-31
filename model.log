@@ -1,0 +1,100 @@
+2023-12-11 22:09:03,288 - OpenAIBrain - INFO - OpenAI API KEY set.
+2023-12-11 22:09:03,288 - OpenAIBrain - INFO - OpenAI API KEY already set.
+2023-12-11 22:10:50,631 - OpenAIBrain - INFO - OpenAI API KEY set.
+2023-12-11 22:10:50,631 - OpenAIBrain - INFO - OpenAI API KEY already set.
+2023-12-11 22:11:12,705 - OpenAIBrain - INFO - OpenAI API KEY set.
+2023-12-11 22:11:12,705 - OpenAIBrain - INFO - OpenAI API KEY already set.
+2023-12-11 22:17:35,385 - OpenAIBrain - ERROR - invalid key format use openai api keys.
+2023-12-11 22:17:35,386 - OpenAIBrain - ERROR - OpenAI API KEY not set.
+2023-12-11 22:18:00,194 - OpenAIBrain - ERROR - invalid key format use openai api keys.
+2023-12-11 22:18:12,718 - OpenAIBrain - ERROR - invalid key format use openai api keys.
+2023-12-11 22:19:35,700 - OpenAIBrain - ERROR - invalid key format use openai api keys.
+2023-12-11 22:21:45,622 - OpenAIBrain - ERROR - invalid key format use openai api keys.
+2023-12-11 22:24:27,083 - OpenAIBrain - ERROR - invalid key format use openai api keys.
+2023-12-11 22:30:15,093 - OpenAIBrain - INFO - OpenAI API KEY set.
+2023-12-11 22:30:37,570 - OpenAIBrain - INFO - OpenAI API KEY set.
+2023-12-11 22:31:01,747 - OpenAIBrain - INFO - OpenAI API KEY set.
+2023-12-11 23:03:52,041 - OpenAIBrain - INFO - OpenAI API KEY set.
+2023-12-11 23:04:16,842 - OpenAIBrain - INFO - OpenAI API KEY set.
+2024-05-30 20:58:45,411 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 20:58:49,460 - GeminiAIBrain - ERROR - AIPlatformError: 403 This API method requires billing to be enabled. Please enable billing on project #prefab-glazing-392215 by visiting https://console.developers.google.com/billing/enable?project=prefab-glazing-392215 then retry. If you enabled billing for this project recently, wait a few minutes for the action to propagate to our systems and retry. [links {
+  description: "Google developers console billing"
+  url: "https://console.developers.google.com/billing/enable?project=prefab-glazing-392215"
+}
+, reason: "BILLING_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "consumer"
+  value: "projects/prefab-glazing-392215"
+}
+]
+2024-05-30 21:40:32,047 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 21:44:27,505 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 21:44:40,050 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 21:44:40,051 - GeminiAIBrain - ERROR - AIPlatformError: name 'GenerativeModel' is not defined
+2024-05-30 21:45:23,748 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:04:14,352 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:04:30,592 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:04:58,287 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:09:00,274 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-pro
+2024-05-30 22:09:02,254 - GeminiAIBrain - ERROR - AIPlatformError: 403 Request had insufficient authentication scopes. [reason: "ACCESS_TOKEN_SCOPE_INSUFFICIENT"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "method"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+]
+2024-05-30 22:10:08,555 - GeminiAIBrain - INFO - GeminiAIBrain API KEY already set.
+2024-05-30 22:11:04,941 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:11:04,941 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-pro
+2024-05-30 22:13:06,110 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:13:06,110 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-30 22:13:57,125 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:13:57,125 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-30 22:14:29,012 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:14:29,012 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-30 22:16:08,065 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:16:08,065 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-30 22:23:15,045 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 22:23:15,045 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-30 23:49:06,520 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-30 23:49:06,521 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 00:08:08,514 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 00:08:08,514 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 00:08:59,208 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 00:08:59,208 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 00:09:24,566 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 00:09:24,567 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 00:09:56,443 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 00:09:56,443 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 00:10:36,151 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 00:10:36,152 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 00:11:35,887 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 00:11:35,887 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 00:13:40,213 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 00:13:40,213 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 00:13:51,668 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 00:13:51,669 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 01:04:09,409 - PromptHandler - INFO - PromptHandler initiated
+2024-05-31 01:04:09,465 - PromptHandler - INFO - file name: planning_prompt.json loaded successfully.
+2024-05-31 01:04:22,048 - PromptHandler - INFO - PromptHandler initiated
+2024-05-31 01:04:22,048 - PromptHandler - INFO - file name: prompts/planning_prompt.json loaded successfully.
+2024-05-31 01:04:25,037 - PromptHandler - INFO - PromptHandler initiated
+2024-05-31 01:04:25,037 - PromptHandler - INFO - file name: planning_prompt.json loaded successfully.
+2024-05-31 01:16:28,761 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 01:16:28,762 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 01:16:28,764 - GeminiAIBrain - ERROR - AIPlatformError: __init__() got an unexpected keyword argument 'tools'
+2024-05-31 01:17:24,166 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 01:17:24,167 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 01:17:24,168 - GeminiAIBrain - ERROR - AIPlatformError: __init__() got an unexpected keyword argument 'tools'
+2024-05-31 01:17:51,023 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-05-31 01:17:51,023 - GeminiAIBrain - INFO - GeminiAIBrain initiated with model: gemini-1.5-pro
+2024-05-31 01:17:51,026 - GeminiAIBrain - ERROR - AIPlatformError: __init__() got an unexpected keyword argument 'tools'

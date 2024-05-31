@@ -1,4 +1,5 @@
 # Ignore db.log and sql.db files
 db.log
 sql.db
+prompt.log
 __pycache__
