@@ -35,7 +35,6 @@ class OpenAIBrain(IModel):
     def api_key(self,api_key):
         """Set API key"""
         self.__api_key=api_key
-        # setting api key to environment
         os.environ['OPENAI_API_KEY']= self.__api_key
         self.logger.info("OpenAI API KEY set.")
     
@@ -65,8 +64,6 @@ class OpenAIBrain(IModel):
         
 
 ai= OpenAIBrain(model='gpt-4-0125-preview')
-
-
 prompt_temp= Template("""
                     Goals: List  goals that the expert aims to achieve in order to help with the task
                     You should always have your thoughts laid out first, then reason with it and carefully lay out your plan with you abilities in mind.
