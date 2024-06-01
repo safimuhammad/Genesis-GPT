@@ -62,7 +62,7 @@ class OpenAIBrain(IModel):
         except openai.RateLimitError as e:
             self.logger.error(f"Rate Limit Error: {e}")
         
-
+# ignore below this line just for testing
 ai= OpenAIBrain(model='gpt-4-0125-preview')
 prompt_temp= Template("""
                     Goals: List  goals that the expert aims to achieve in order to help with the task
