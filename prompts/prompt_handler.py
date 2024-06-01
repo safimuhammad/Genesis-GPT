@@ -40,6 +40,11 @@ class PromptHandler():
 
     def fetch_abilities(self):
         """auto fetch global abilities and substitute in prompt_temp"""
+        pass
+
+    def combine_prompts(self):
+        """Combine prompts in base template"""
+        pass
 
 
 foo=PromptHandler('prompts/planning_prompt.json')
