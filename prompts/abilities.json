@@ -1,0 +1,12 @@
+{
+  "abilities": [
+    {
+      "tool_name": "read_file",
+      "description": "Ability to read any file in the working directory, can also copy the file content."
+    },
+    {
+      "tool_name": "write_file",
+      "description": "Ability to write content to an existing file or can also create new file and write content to it"
+    }
+  ]
+}
