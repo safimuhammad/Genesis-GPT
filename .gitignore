@@ -3,3 +3,4 @@ db.log
 sql.db
 prompt.log
 __pycache__
+main.py

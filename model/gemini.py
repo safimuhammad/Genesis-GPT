@@ -1,21 +1,23 @@
-from interface import IModel
+from .interface import IModel  # relative imports
 import logging
 import os
 import google.generativeai as genai
 from string import Template
-from model_logger import initiate_logging
+from .model_logger import initiate_logging
+
 
 class GeminiAIBrain(IModel):
-    def __init__(self,model,api_key):
+    def __init__(self, model, api_key):
         """Initializing logging and api key"""
-        self.model=model
-        self.logger = logging.getLogger('GeminiAIBrain')
-        self.__handler=initiate_logging()
-        self.logger.addHandler(self.__handler)
+        self.model = model
+        self.logger = logging.getLogger("GeminiAIBrain")
+        stream_handler, file_handler = initiate_logging()
+        self.logger.addHandler(stream_handler)
+        self.logger.addHandler(file_handler)
+        self.logger.setLevel(logging.DEBUG)
         self.api_key(api_key)
-        self.logger.info(f"GeminiAIBrain initiated with model: {model}")
+        self.logger.info(f"GeminiAIBrain model: {model}")
 
-        
     @property
     def api_key_status(self):
         """Check the status of API key"""
@@ -26,23 +28,22 @@ class GeminiAIBrain(IModel):
 
         return self.__api_key
 
-    def api_key(self,api_key):
+    def api_key(self, api_key):
         """Set API key"""
-        self.__api_key=api_key
+        self.__api_key = api_key
         genai.configure(api_key=self.__api_key)
-        self.logger.info("GOOGLE_API_KEY API KEY set.")  
-    
-    def llm_completion(self,prompt,tool):
+        self.logger.info("GOOGLE_API_KEY API KEY set.")
+
+    def llm_completion(self, prompt, tool):
         try:
-            self.client= genai.GenerativeModel(self.model,tools=[tool])
-            completion = self.client.generate_content(prompt, 
-            # Force a function call
-            tool_config={'function_calling_config':'ANY'}
+            self.client = genai.GenerativeModel(self.model, tools=[tool])
+            completion = self.client.generate_content(
+                prompt,
+                # Force a function call
+                tool_config={"function_calling_config": "ANY"},
             )
 
             return completion
-            
+
         except Exception as ai_error:
             self.logger.error(f"AIPlatformError: {ai_error}")
-
-
