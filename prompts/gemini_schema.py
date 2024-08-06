@@ -1,17 +1,29 @@
 from typing_extensions import TypedDict
 from pydantic import Field
+import typing
 
 
 class Thoughts(TypedDict):
     planning: list[str] = Field(
         ..., description="Step by step reasoning of the problem"
     )
-    criticism: str = Field(..., description="criticize your planning")
+    criticism: str = Field(..., description="criticize your planning or None")
+
+
+class Args(TypedDict):
+    arg_name: str
+    is_static: bool = Field(
+        ..., description="If arg_value cannot be decided set to false."
+    )
+    arg_value: str = Field(
+        ..., description="If arg_value is not availibe set this to None"
+    )
 
 
 class AbilityDetail(TypedDict):
     plan_for_tool: str = Field(..., description="Plan for the specific tool")
     tool_to_use: str
+    args: list[Args]
 
 
 class AbilityGraph(TypedDict):

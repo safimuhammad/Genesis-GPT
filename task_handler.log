@@ -1,0 +1,596 @@
+2024-07-14 01:10:16,157 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:10:16,157 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:10:16,158 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:10:16,159 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:10:16,165 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:10:16,166 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:10:24,124 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:10:24,127 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content from test.txt using read_file and store it. Then write that content to production.txt using write_file tool[0m[0m
+2024-07-14 01:10:24,128 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:10:24,129 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the file test.txt[0m[0m
+2024-07-14 01:10:24,129 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'test.txt', 'is_static': True}][0m[0m
+2024-07-14 01:10:24,130 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 01:10:24,131 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mCopy the content of test.txt to production.txt[0m[0m
+2024-07-14 01:10:24,131 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'production.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 01:21:02,325 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:21:02,326 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:21:02,326 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:21:02,327 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:21:02,327 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:21:02,328 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:21:10,659 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:21:10,660 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content of file test.txt using read_file ability. Then write the content to production.txt using write_file ability[0m[0m
+2024-07-14 01:21:10,660 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:21:10,662 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the file test.txt[0m[0m
+2024-07-14 01:21:10,662 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'test.txt', 'is_static': True}][0m[0m
+2024-07-14 01:23:21,978 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:23:21,978 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:23:21,979 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:23:21,980 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:23:21,980 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:23:21,980 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:23:29,619 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:23:29,620 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mRead the content from file test.txt using tool read_file and store the content in a variable[0m[0m
+2024-07-14 01:23:29,620 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mWrite the content from above step to file production.txt using tool write_file[0m[0m
+2024-07-14 01:23:29,621 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:23:29,621 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the content from file test.txt[0m[0m
+2024-07-14 01:23:29,622 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'test.txt', 'is_static': True}][0m[0m
+2024-07-14 01:23:29,622 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 01:23:29,623 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite the content from previous step to file production.txt[0m[0m
+2024-07-14 01:23:29,623 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'production.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 01:24:24,615 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:24:24,616 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:24:24,617 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:24:24,617 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:24:24,618 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:24:24,618 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:24:33,215 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:24:33,216 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the contents of file data.txt using read_file and store it .[0m[0m
+2024-07-14 01:24:33,216 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mNext write the content to production.txt using write_file tool[0m[0m
+2024-07-14 01:24:33,217 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:24:33,217 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the content of data.txt using read_file tool[0m[0m
+2024-07-14 01:24:33,218 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 01:25:39,896 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:25:39,896 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:25:39,897 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:25:39,898 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:25:39,898 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:25:39,899 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:25:47,435 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:25:47,435 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content of data.txt using read_file and store it. Then write the content to production.txt using write_file[0m[0m
+2024-07-14 01:25:47,436 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:25:47,437 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the content of data.txt[0m[0m
+2024-07-14 01:25:47,437 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 01:26:12,296 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:26:12,296 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:26:12,297 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:26:12,298 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:26:12,298 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:26:12,299 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:26:20,577 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:26:20,577 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content of the file data.txt using read_file tool. Then copy that content into production.txt file using write_file tool.[0m[0m
+2024-07-14 01:26:20,578 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:26:20,578 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the content from data.txt file. [0m[0m
+2024-07-14 01:26:20,579 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 01:40:17,860 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:40:17,861 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:40:17,861 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:40:17,862 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:40:17,862 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:40:17,863 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:40:25,382 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:40:25,383 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content of data.txt using read_file and then copy the content to production.txt using write_file.[0m[0m
+2024-07-14 01:40:25,383 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:40:25,384 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the content of file data.txt[0m[0m
+2024-07-14 01:40:25,385 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 01:40:25,385 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 01:40:25,386 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mCopy the content of data.txt to production.txt[0m[0m
+2024-07-14 01:40:25,386 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'production.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 01:47:21,219 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:47:21,220 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:47:21,220 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:47:21,221 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:47:21,221 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:47:21,222 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:47:28,906 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:47:28,906 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content from data.txt using read_file tool, then write that content to production.txt using write_file tool[0m[0m
+2024-07-14 01:47:28,907 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:47:28,908 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead data from file data.txt[0m[0m
+2024-07-14 01:47:28,908 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 01:47:28,909 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 01:47:28,909 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite the content from data.txt to production.txt[0m[0m
+2024-07-14 01:47:28,910 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'production.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'unknown', 'is_static': False}][0m[0m
+2024-07-14 01:58:55,309 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 01:58:55,309 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 01:58:55,310 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 01:58:55,311 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 01:58:55,312 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 01:58:55,312 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 01:59:02,859 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 01:59:02,860 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content from data.txt using read_file and then pass the content to write_file to write it into production.txt[0m[0m
+2024-07-14 01:59:02,860 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 01:59:02,861 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the content from the file data.txt[0m[0m
+2024-07-14 01:59:02,862 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 01:59:02,862 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 01:59:02,863 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite the content to production.txt[0m[0m
+2024-07-14 01:59:02,863 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'production.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:06:18,445 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:06:18,445 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:06:18,446 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:06:18,446 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:06:18,447 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:06:18,447 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:06:26,101 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:06:26,102 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content of data.txt file using read_file tool and then write that content to production.txt file using write_file tool.[0m[0m
+2024-07-14 02:06:26,102 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:06:26,103 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead data.txt file and store content[0m[0m
+2024-07-14 02:06:26,103 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:06:26,104 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 02:06:26,105 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite content to production.txt file[0m[0m
+2024-07-14 02:06:26,105 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'production.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:07:11,953 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:07:11,954 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:07:11,955 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:07:11,955 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:07:11,956 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:07:11,956 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:07:19,568 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:07:19,569 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst, read the content from data.txt using the `read_file` tool, then copy that content into production.txt using the `write_file` tool[0m[0m
+2024-07-14 02:07:19,569 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:07:19,570 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead data from data.txt[0m[0m
+2024-07-14 02:07:19,570 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'is_static': True}][0m[0m
+2024-07-14 02:08:41,166 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:08:41,167 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:08:41,167 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:08:41,168 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:08:41,169 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:08:41,170 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:08:49,300 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:08:49,301 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content of file data.txt using read_file tool and store it[0m[0m
+2024-07-14 02:08:49,302 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mThen write the content to production.txt using write_file tool[0m[0m
+2024-07-14 02:08:49,302 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:08:49,303 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead contents from data.txt file[0m[0m
+2024-07-14 02:08:49,303 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:10:40,955 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:10:40,956 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:10:40,957 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:10:40,957 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:10:40,958 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:10:40,959 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:10:48,576 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:10:48,577 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content of file data.txt using read_file tool and then write the content to production.txt using write_file tool[0m[0m
+2024-07-14 02:10:48,578 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:10:48,578 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead data.txt file[0m[0m
+2024-07-14 02:10:48,578 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:10:48,579 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 02:10:48,579 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite content of data.txt to production.txt[0m[0m
+2024-07-14 02:10:48,579 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'production.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:12:14,782 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:12:14,782 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:12:14,783 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:12:14,783 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:12:14,784 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:12:14,785 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:12:22,644 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:12:22,645 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content of the file data.txt using read_file tool and then copy that content to production.txt file using write_file tool.[0m[0m
+2024-07-14 02:12:22,645 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:12:22,646 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the content from data.txt file. [0m[0m
+2024-07-14 02:12:22,646 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:12:22,647 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 02:12:22,647 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite the content to production.txt file[0m[0m
+2024-07-14 02:12:22,647 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'production.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:13:31,828 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:13:31,829 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:13:31,829 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:13:31,829 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:13:31,830 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:13:31,831 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:13:40,130 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:13:40,131 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content from the file data.txt using read_file tool and store it in a variable[0m[0m
+2024-07-14 02:13:40,131 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mNext, use write_file tool to copy the content from previous step to data_copy.txt[0m[0m
+2024-07-14 02:13:40,131 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:13:40,132 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead data from data.txt[0m[0m
+2024-07-14 02:13:40,132 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:14:28,094 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:14:28,094 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:14:28,094 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:14:28,094 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:14:28,095 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:14:28,095 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:14:36,237 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:14:36,238 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the content from the file data.txt using read_file ability[0m[0m
+2024-07-14 02:14:36,238 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mThen use the write_file ability to display the content to the user[0m[0m
+2024-07-14 02:14:36,239 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:14:36,239 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead data from data.txt[0m[0m
+2024-07-14 02:14:36,239 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:15:23,549 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:15:23,549 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:15:23,550 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:15:23,550 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:15:23,551 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:15:23,551 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:15:28,189 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:15:28,190 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mTo read content from file data.txt, we will need to use the 'read_file' tool and provide 'data.txt' as input to the file_path argument[0m[0m
+2024-07-14 02:15:28,190 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:15:28,191 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread  content from file data.txt[0m[0m
+2024-07-14 02:15:28,191 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:15:49,567 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:15:49,567 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:15:49,568 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:15:49,569 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:15:49,569 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:15:49,569 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:15:54,075 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:15:54,076 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mThe task is to read from file data.txt. So, I will use the read_file tool and pass the file_path as data.txt[0m[0m
+2024-07-14 02:15:54,077 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:15:54,077 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the file from the given file path[0m[0m
+2024-07-14 02:15:54,078 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:17:02,022 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:17:02,022 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:17:02,023 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:17:02,023 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:17:02,024 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:17:02,025 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:17:11,996 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:17:11,997 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst think about a topic and give it to content generation tool. [0m[0m
+2024-07-14 02:17:11,997 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mThen give the generated content to write file tool to write to a file. [0m[0m
+2024-07-14 02:17:11,997 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mthink_about_topic()[0m[0m
+2024-07-14 02:17:11,998 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mThink about any topic and gather information about it. [0m[0m
+2024-07-14 02:17:11,999 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'topic', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:17:11,999 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mgenerate_content()[0m[0m
+2024-07-14 02:17:11,999 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mGiven the topic from previous step, generate content on that topic. [0m[0m
+2024-07-14 02:17:11,999 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'content', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:17:12,000 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 02:17:12,000 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mwrite the content generated in previous step to a file named content.txt[0m[0m
+2024-07-14 02:17:12,000 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'content.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:18:31,626 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:18:31,626 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:18:31,627 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:18:31,627 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:18:31,633 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:18:31,634 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:18:39,535 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:18:39,535 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst, use the content_writer tool to generate content based on the specified topic. Then, utilize the write_file tool to save the generated content to a file named content.txt. The data from the content_writer tool will be passed as input to the write_file tool.[0m[0m
+2024-07-14 02:18:39,536 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-07-14 02:18:39,537 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mWrite content on any given topic using the content_writer tool[0m[0m
+2024-07-14 02:18:39,537 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:18:39,538 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 02:18:39,538 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mSave the content to content.txt using the write_file tool[0m[0m
+2024-07-14 02:18:39,539 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'content.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:19:28,078 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:19:28,079 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:19:28,079 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:19:28,080 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:19:28,080 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:19:28,081 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:19:40,908 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mIt's unclear what 'content topic' means. We need to analyze the content of data.txt to understand what topic it refers to. Therefore, we'll need an additional tool/ability for 'content_analysis'.[0m[0m
+2024-07-14 02:19:40,909 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:19:40,909 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead content topic from data.txt[0m[0m
+2024-07-14 02:19:40,910 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:20:56,902 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:20:56,902 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:20:56,903 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:20:56,903 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:20:56,904 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:20:56,905 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:21:07,669 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:21:07,670 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:21:07,671 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread data.txt[0m[0m
+2024-07-14 02:21:07,671 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:22:49,834 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:22:49,834 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:22:49,835 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:22:49,835 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:22:49,836 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:22:49,836 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:22:59,809 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:22:59,810 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mRead the topic from data.txt using read_file[0m[0m
+2024-07-14 02:22:59,810 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mUse content_writer to write the essay[0m[0m
+2024-07-14 02:22:59,810 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mSave the essay to content.txt using write_file[0m[0m
+2024-07-14 02:22:59,811 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:22:59,811 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread data.txt[0m[0m
+2024-07-14 02:22:59,812 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:22:59,812 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-07-14 02:22:59,813 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite an essay on the topic read[0m[0m
+2024-07-14 02:22:59,813 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:22:59,814 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 02:22:59,814 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mSave the essay to content.txt[0m[0m
+2024-07-14 02:22:59,815 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'content.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:23:30,622 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:23:30,622 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:23:30,622 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:23:30,623 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:23:30,623 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:23:30,624 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:23:40,920 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:23:40,920 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mWe first have to read the file using read_file and store the content. Then use content writer to write an essay on the content read from the file. Then save the content to content.txt using write_file [0m[0m
+2024-07-14 02:23:40,921 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:23:40,921 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread the topic from data.txt[0m[0m
+2024-07-14 02:23:40,922 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:27:13,233 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:27:13,234 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:27:13,234 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:27:13,235 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:27:13,236 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:27:13,236 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:27:16,620 - GeminiAIBrain - ERROR - AIPlatformError: 403 Request had insufficient authentication scopes. [reason: "ACCESS_TOKEN_SCOPE_INSUFFICIENT"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "method"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+]
+2024-07-14 02:27:48,286 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-14 02:27:48,287 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-14 02:27:48,287 - PromptHandler - INFO - PromptHandler initialized
+2024-07-14 02:27:48,288 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-14 02:27:48,288 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-14 02:27:48,289 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-14 02:27:58,182 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-14 02:27:58,183 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the topic from data.txt using read_file[0m[0m
+2024-07-14 02:27:58,305 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mThen, generate essay content from the topic using content_writer[0m[0m
+2024-07-14 02:27:58,306 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mFinally, save the generated essay content in content.txt using write_file[0m[0m
+2024-07-14 02:27:58,306 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-14 02:27:58,306 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the topic from data.txt[0m[0m
+2024-07-14 02:27:58,307 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-14 02:27:58,307 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-07-14 02:27:58,307 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite the essay content to content.txt[0m[0m
+2024-07-14 02:27:58,309 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-14 02:27:58,309 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-14 02:27:58,310 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mSave the content to content.txt[0m[0m
+2024-07-14 02:27:58,310 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'content.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-15 21:34:05,704 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-15 21:34:05,706 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-15 21:34:05,706 - PromptHandler - INFO - PromptHandler initialized
+2024-07-15 21:34:05,715 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-15 21:34:05,725 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-15 21:34:05,726 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-15 21:34:18,884 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-15 21:34:18,885 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mWe first have to use read_file tool to read the topic from data.txt[0m[0m
+2024-07-15 21:34:18,886 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mThen we will use content writer tool, by providing the data from previous step as an argument[0m[0m
+2024-07-15 21:34:18,887 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mAnd finally to save the content, we can use write_file tool and provide the generated content from previous step and name of the file i.e. content.txt[0m[0m
+2024-07-15 21:34:18,888 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-15 21:34:18,888 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread the topic from data.txt[0m[0m
+2024-07-15 21:34:18,889 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-15 21:35:14,733 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-15 21:35:14,734 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-15 21:35:14,734 - PromptHandler - INFO - PromptHandler initialized
+2024-07-15 21:35:14,740 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-15 21:35:14,747 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-15 21:35:14,748 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-15 21:35:25,690 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-15 21:35:25,691 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the topic from data.txt file using read_file tool. Then, write the blog content using content_writer tool. Finally, save the content to content.txt file using write_file tool.[0m[0m
+2024-07-15 21:35:25,692 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-15 21:35:25,693 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead data from data.txt using read_file tool[0m[0m
+2024-07-15 21:35:25,693 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-15 21:35:25,694 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-07-15 21:35:25,695 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite blog content to content.txt using write_file tool[0m[0m
+2024-07-15 21:35:25,695 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-15 21:35:25,696 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-15 21:35:25,697 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mWrite blog content to content.txt using write_file tool[0m[0m
+2024-07-15 21:35:25,697 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'content.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-15 21:35:39,987 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-15 21:35:39,988 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-15 21:35:39,988 - PromptHandler - INFO - PromptHandler initialized
+2024-07-15 21:35:39,989 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-15 21:35:39,990 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-15 21:35:39,991 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-15 21:35:53,535 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-15 21:35:53,536 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the topic from data.txt using read_file[0m[0m
+2024-07-15 21:35:53,537 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mThen, write content on the topic using content_writer[0m[0m
+2024-07-15 21:35:53,537 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mFinally, save the content to content.txt using write_file[0m[0m
+2024-07-15 21:35:53,538 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-15 21:35:53,538 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread content from data.txt[0m[0m
+2024-07-15 21:35:53,539 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-26 00:17:22,862 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-26 00:17:22,873 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-26 00:20:17,279 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-26 00:20:17,279 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-26 00:20:44,538 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-26 00:20:44,539 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-27 03:18:08,792 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-27 03:18:08,793 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-27 03:18:08,793 - PromptHandler - INFO - PromptHandler initialized
+2024-07-27 03:18:08,907 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-27 03:18:08,923 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-27 03:18:08,923 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-27 03:18:20,474 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-27 03:18:20,474 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the file data.txt using read_file ability[0m[0m
+2024-07-27 03:18:20,475 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mThe data from read_file is the topic, feed it to content writer and get the blog written[0m[0m
+2024-07-27 03:18:20,475 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mFinally write the blog to content.txt using write_file[0m[0m
+2024-07-27 03:18:20,475 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-27 03:18:20,475 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread content from data.txt[0m[0m
+2024-07-27 03:18:20,476 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-27 03:21:25,499 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-27 03:21:25,500 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-27 03:21:25,500 - PromptHandler - INFO - PromptHandler initialized
+2024-07-27 03:21:25,501 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-27 03:21:25,501 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-27 03:21:25,502 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-27 03:21:37,193 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-27 03:21:37,194 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mRead data.txt using read_file and store the data[0m[0m
+2024-07-27 03:21:37,194 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mUse content_writer to write a blog on the topic we read in data.txt[0m[0m
+2024-07-27 03:21:37,194 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mSave the blog in demo.txt using write_file[0m[0m
+2024-07-27 03:21:37,195 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-27 03:21:37,195 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the topic from data.txt file.[0m[0m
+2024-07-27 03:21:37,196 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-27 03:21:37,196 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-07-27 03:21:37,197 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite the content to demo.txt file after reading the topic from data.txt.[0m[0m
+2024-07-27 03:21:37,197 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-27 03:21:37,197 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-27 03:21:37,198 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mSave the content to demo.txt.[0m[0m
+2024-07-27 03:21:37,198 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'demo.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-27 03:22:40,597 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-27 03:22:40,598 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-27 03:22:40,598 - PromptHandler - INFO - PromptHandler initialized
+2024-07-27 03:22:40,599 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-27 03:22:40,599 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-27 03:22:40,600 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-27 03:22:50,974 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-27 03:22:50,974 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-27 03:22:50,975 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the file data.txt which contains the topic of the blog.[0m[0m
+2024-07-27 03:22:50,975 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-27 03:22:50,977 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-07-27 03:22:50,977 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mThe data read from previous step will be used by content writer to write a blog on the topic read.[0m[0m
+2024-07-27 03:22:50,977 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-27 03:22:50,979 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-27 03:22:50,979 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mWrite the blog generated from previous step to demo.txt file.[0m[0m
+2024-07-27 03:22:50,979 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'demo.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-27 03:23:23,797 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-27 03:23:23,797 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-27 03:23:23,798 - PromptHandler - INFO - PromptHandler initialized
+2024-07-27 03:23:23,798 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-27 03:23:23,799 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-27 03:23:23,799 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-27 03:23:34,833 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-27 03:23:34,833 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mRead the topic from data.txt using read_file.[0m[0m
+2024-07-27 03:23:34,834 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mWrite a blog on the topic using content_writer and store the output.[0m[0m
+2024-07-27 03:23:34,834 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mUse write_file to save the blog to demo.txt[0m[0m
+2024-07-27 03:23:34,834 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-27 03:23:34,835 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread the topic from data.txt[0m[0m
+2024-07-27 03:23:34,835 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-27 03:24:20,754 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-07-27 03:24:20,754 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-07-27 03:24:20,755 - PromptHandler - INFO - PromptHandler initialized
+2024-07-27 03:24:20,755 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-07-27 03:24:20,756 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-07-27 03:24:20,757 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-07-27 03:24:30,911 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-07-27 03:24:30,912 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mread data.txt using read_file and store the data[0m[0m
+2024-07-27 03:24:30,912 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mGenerate content from the read data and store the content[0m[0m
+2024-07-27 03:24:30,913 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mWrite the content to the demo.txt file using write_file tool[0m[0m
+2024-07-27 03:24:30,913 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-07-27 03:24:30,913 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread data from data.txt file.[0m[0m
+2024-07-27 03:24:30,914 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-07-27 03:24:30,914 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-07-27 03:24:30,914 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite the content to demo.txt file.[0m[0m
+2024-07-27 03:24:30,915 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-07-27 03:24:30,915 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-07-27 03:24:30,915 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36msave the content to demo.txt file.[0m[0m
+2024-07-27 03:24:30,916 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'demo.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-01 21:52:45,091 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-08-01 21:52:45,095 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-08-01 21:52:45,095 - PromptHandler - INFO - PromptHandler initialized
+2024-08-01 21:52:45,107 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-08-01 21:52:45,125 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-08-01 21:52:45,126 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-08-01 21:52:55,717 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-08-01 21:52:55,718 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mread the topic from data.txt using read_file[0m[0m
+2024-08-01 21:52:55,718 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mUse the content from previous step and use content writer to write a blog on the given topic[0m[0m
+2024-08-01 21:52:55,719 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mSave the blog in demo.txt using write_file[0m[0m
+2024-08-01 21:52:55,719 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-08-01 21:52:55,719 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread content from data.txt[0m[0m
+2024-08-01 21:52:55,720 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-08-01 21:52:55,720 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-08-01 21:52:55,720 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mwrite the content to demo.txt[0m[0m
+2024-08-01 21:52:55,720 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-01 21:52:55,721 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-08-01 21:52:55,721 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36msave the content in demo.txt[0m[0m
+2024-08-01 21:52:55,722 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'demo.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-05 22:09:36,913 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-08-05 22:09:36,923 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-08-05 22:09:36,923 - PromptHandler - INFO - PromptHandler initialized
+2024-08-05 22:09:36,942 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-08-05 22:09:36,957 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-08-05 22:09:36,958 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-08-05 22:09:47,105 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-08-05 22:09:47,105 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the topic from the file data.txt using read_file[0m[0m
+2024-08-05 22:09:47,105 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mThen, write a blog on the topic using content_writer[0m[0m
+2024-08-05 22:09:47,106 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mFinally, save the generated blog to demo.txt using write_file[0m[0m
+2024-08-05 22:09:47,107 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-08-05 22:09:47,107 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the topic from data.txt[0m[0m
+2024-08-05 22:09:47,108 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-08-05 22:09:47,108 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-08-05 22:09:47,109 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite the content to demo.txt[0m[0m
+2024-08-05 22:09:47,109 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-05 22:09:47,109 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-08-05 22:09:47,110 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mSave the blog to demo.txt[0m[0m
+2024-08-05 22:09:47,110 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'demo.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-05 22:11:44,125 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-08-05 22:11:44,126 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-08-05 22:11:44,126 - PromptHandler - INFO - PromptHandler initialized
+2024-08-05 22:11:44,127 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-08-05 22:11:44,127 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-08-05 22:11:44,128 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-08-05 22:11:54,083 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-08-05 22:11:54,084 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-08-05 22:11:54,084 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the file data.txt which contains the topic of blog[0m[0m
+2024-08-05 22:11:54,085 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-08-05 22:12:33,967 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-08-05 22:12:33,968 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-08-05 22:12:33,968 - PromptHandler - INFO - PromptHandler initialized
+2024-08-05 22:12:33,969 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-08-05 22:12:33,969 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-08-05 22:12:33,969 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-08-05 22:12:44,802 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-08-05 22:12:44,803 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the file data.txt using read_file tool and store the data. [0m[0m
+2024-08-05 22:12:44,803 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mNext, the content needs to be generated for the blog using the tool content_writer and the input for this tool will be the data fetched from previous step.[0m[0m
+2024-08-05 22:12:44,804 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mFinally using the write_file tool, write the content to the file demo.txt[0m[0m
+2024-08-05 22:12:44,804 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-08-05 22:12:44,804 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the data from the file data.txt which contains the blog topic. [0m[0m
+2024-08-05 22:12:44,805 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-08-05 22:12:44,805 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-08-05 22:12:44,806 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite a blog on the topic read in previous step and save it to file demo.txt[0m[0m
+2024-08-05 22:12:44,806 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-05 22:12:44,807 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-08-05 22:12:44,807 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mWrite the blog to the file demo.txt[0m[0m
+2024-08-05 22:12:44,808 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'demo.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-05 22:13:03,249 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-08-05 22:13:03,250 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-08-05 22:13:03,250 - PromptHandler - INFO - PromptHandler initialized
+2024-08-05 22:13:03,251 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-08-05 22:13:03,251 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-08-05 22:13:03,252 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-08-05 22:13:13,787 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-08-05 22:13:13,788 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-08-05 22:13:13,788 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the file data.txt which contains the topic.[0m[0m
+2024-08-05 22:13:13,789 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-08-05 22:14:05,047 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-08-05 22:14:05,048 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-08-05 22:14:05,048 - PromptHandler - INFO - PromptHandler initialized
+2024-08-05 22:14:05,049 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-08-05 22:14:05,051 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-08-05 22:14:05,051 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-08-05 22:14:14,207 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-08-05 22:14:14,208 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-08-05 22:14:14,208 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the data from the given file data.txt[0m[0m
+2024-08-05 22:14:14,209 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-08-05 22:14:14,209 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-08-05 22:14:14,210 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mWrite a blog on the data fetched from data.txt[0m[0m
+2024-08-05 22:14:14,210 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-05 22:14:14,211 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-08-05 22:14:14,212 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36mSave the blog to demo.txt[0m[0m
+2024-08-05 22:14:14,212 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'demo.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-05 22:37:45,142 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-08-05 22:37:45,142 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-08-05 22:37:45,143 - PromptHandler - INFO - PromptHandler initialized
+2024-08-05 22:37:45,143 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-08-05 22:37:45,143 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-08-05 22:37:45,143 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-08-05 22:37:55,037 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-08-05 22:37:55,038 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-08-05 22:37:55,038 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mRead the data from the file data.txt which has the topic to write the blog on.[0m[0m
+2024-08-05 22:37:55,038 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-08-05 22:46:05,442 - GeminiAIBrain - INFO - GOOGLE_API_KEY API KEY set.
+2024-08-05 22:46:05,442 - GeminiAIBrain - INFO - GeminiAIBrain model: gemini-1.5-pro
+2024-08-05 22:46:05,443 - PromptHandler - INFO - PromptHandler initialized
+2024-08-05 22:46:05,444 - PromptHandler - INFO - file name: planning_prompt.txt loaded successfully.
+2024-08-05 22:46:05,450 - PromptHandler - INFO - file name: abilities.json loaded successfully.
+2024-08-05 22:46:05,451 - PromptHandler - INFO - Prompt Template updated with user prompt.
+2024-08-05 22:46:15,612 - GeminiAIBrain - INFO - [1m[3m[33mCriticism:[0m [0m[0m [3m[33mNone[0m[0m
+2024-08-05 22:46:15,612 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:0 - [0m [0m[0m [3m[35mFirst read the file data.txt using read_file and store the data[0m[0m
+2024-08-05 22:46:15,613 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:1 - [0m [0m[0m [3m[35mWrite a blog on the content received from previous step using content_writer[0m[0m
+2024-08-05 22:46:15,613 - GeminiAIBrain - INFO - [1m[3m[35mPlanning:2 - [0m [0m[0m [3m[35mFinally, save the blog to demo.txt using write_file[0m[0m
+2024-08-05 22:46:15,614 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 0 - [0m [0m[0m [3m [34mread_file()[0m[0m
+2024-08-05 22:46:15,614 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 0 - [0m[0m[0m [3m[36mread the topic from data.txt[0m[0m
+2024-08-05 22:46:15,615 - GeminiAIBrain - INFO - [1m[3m[36margs: 0 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'data.txt', 'is_static': True}][0m[0m
+2024-08-05 22:46:15,615 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 1 - [0m [0m[0m [3m [34mcontent_writer()[0m[0m
+2024-08-05 22:46:15,616 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 1 - [0m[0m[0m [3m[36mwrite the content received from previous step to demo.txt[0m[0m
+2024-08-05 22:46:15,616 - GeminiAIBrain - INFO - [1m[3m[36margs: 1 - [0m[0m[0m [3m[36m[{'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m
+2024-08-05 22:46:15,618 - GeminiAIBrain - INFO - [1m[3m[34mTool_to_use: 2 - [0m [0m[0m [3m [34mwrite_file()[0m[0m
+2024-08-05 22:46:15,618 - GeminiAIBrain - INFO - [1m[3m[36mPlan_for_tool: 2 - [0m[0m[0m [3m[36msave the content to demo.txt[0m[0m
+2024-08-05 22:46:15,618 - GeminiAIBrain - INFO - [1m[3m[36margs: 2 - [0m[0m[0m [3m[36m[{'arg_name': 'file_path', 'arg_value': 'demo.txt', 'is_static': True}, {'arg_name': 'data', 'arg_value': 'None', 'is_static': False}][0m[0m

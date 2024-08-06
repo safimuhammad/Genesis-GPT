@@ -1,0 +1,41 @@
+{
+  "graph": [{ "ability": "read_file", "next_ability": ["write_file"] }],
+  "thoughts": [
+    {
+      "criticism": "None",
+      "planning": [
+        "First read the content from test.txt using read_file.",
+        "Then copy the content of test.txt to production.txt using write_file."
+      ]
+    }
+  ],
+  "ability": [
+    {
+      "ability_name": [
+        {
+          "tool_to_use": "read_file",
+          "plan_for_tool": "Read the content of test.txt",
+          "args": [
+            {
+              "arg_name": "file_path",
+              "arg_value": "data.txt",
+              "is_static": true
+            }
+          ]
+        },
+        {
+          "tool_to_use": "write_file",
+          "plan_for_tool": "Copy content of test.txt to production.txt",
+          "args": [
+            {
+              "arg_name": "file_path",
+              "arg_value": "production.txt",
+              "is_static": true
+            },
+            { "arg_name": "data", "arg_value": "None", "is_static": false }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -71,6 +71,9 @@ class PromptHandler:
 
         return substituted_prompt
 
+    def sub_vars(self, **kwargs):
+        pass
+
     def _fetch_abilities(self):
         """auto fetch global abilities and substitute in prompt_temp"""
 
