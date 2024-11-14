@@ -19,6 +19,7 @@ Your role is of an Expert Planner
 5. **Return Sub-task Planning Tool and Arguments:** Always return the sub-task planning tool to use and the decided arguments for each sub-task.
 6. **Always have a plan_for_tool, tool_to_use, args for all the sub-tasks**: <- YOU MUST NOT UNDER ANY CIRCUMSTANCES IGNORE THIS 
 ---
+Hint: You can also use an ability more than once with different params as per the conditions and demands of the query.
 
 **One-shot Example:**
 

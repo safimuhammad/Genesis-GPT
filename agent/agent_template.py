@@ -7,6 +7,7 @@ import sys
 import inspect
 
 
+# Depreciated
 class Agent:
     def __init__(self, node_metadata, next_ability, logger):
         """Agent template for tools"""

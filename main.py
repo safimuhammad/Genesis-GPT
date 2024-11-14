@@ -12,17 +12,25 @@ with open("api_key.json", "r") as file:
 
 brain = GeminiAIBrain(model="gemini-1.5-pro", api_key=gemini_key)
 prompt = PromptHandler(use_txt_loader=True)
-test_brain = brain.llm_completion( 
+
+
+test_brain = brain.llm_completion(
     prompt.add_user_prompt(
-        "data.txt has a topic on which i want to write a blog on and save it to file demo.txt"
+        "do a back and forth conversation between agent1 and agent2 on global warming."
     ),
     call_ability,
 )
+# print(test_brain)
 
-node_metadata = type(test_brain.candidates[0].content.parts[0]).to_dict(
-    test_brain.candidates[0].content.parts[0]
-)["function_call"]["args"]
 
-graph = Graph(node_metadata)
+# test_brain = brain.test_completion(
+#     prompt.experimental_chat_prompt("create a function in python to add two integers"),
+#     call_ability,
+# )
+# print(test_brain)
+
+
+graph = Graph(test_brain)
+# print(graph.get_graph)
 executor = GraphExecutor(graph.get_graph)
 executor.execute_node(0)

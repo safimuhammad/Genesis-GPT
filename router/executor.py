@@ -31,6 +31,16 @@ class GraphExecutor:
             node = Agent(node_metadata, next_node, self.logger)
             self.nodes[node.node_no] = node
 
+    @property
+    def get_node_metadata_list(self):
+        """get node metadata"""
+        return self.get_node_metadata_list
+
+    @property
+    def get_nodes(self):
+        """get nodes"""
+        return self.nodes
+
     def execute_node(self, node_no):
         """execute node and its connected node"""
         try:
@@ -38,14 +48,23 @@ class GraphExecutor:
             if node:
                 self._set_next_agent(node)
                 result = node.execute()
-                self.logger.info(f"Node {node_no} executed with result: {result}")
-                next_node = node.get_next_node()
-                if next_node:
-                    self.execute_node_by_tool(next_node)
+                # Only continue if result is not None and is truthy
+                if result:
+                    self.logger.info(f"Node {node_no} executed with result: {result}")
+                    next_node = node.get_next_node()
+                    if next_node:
+                        self.execute_node_by_tool(next_node)
+                else:
+                    self.logger.info(
+                        f"Node {node_no} returned an empty or None result. Stopping execution."
+                    )
             else:
                 self.logger.info(f"Node {node_no} not found.")
+
         except Exception as e:
             self.logger.error(f"Error executing node {node_no}: {e}")
+            sys.exit(1)
+
             return
 
     def execute_node_by_tool(self, tool_to_use):
@@ -55,6 +74,7 @@ class GraphExecutor:
                 if node.tool_to_use == tool_to_use:
                     self._set_next_agent(node)
                     result = node.execute()
+
                     self.logger.info(
                         f"Node with tool {tool_to_use} executed with result: {result}"
                     )
@@ -64,6 +84,7 @@ class GraphExecutor:
                     break
         except Exception as e:
             self.logger.error(f"Error executing node with tool {tool_to_use}: {e}")
+            sys.exit(1)
             return  # Stop execution
 
     def _set_next_agent(self, node):

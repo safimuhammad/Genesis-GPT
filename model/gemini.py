@@ -5,6 +5,7 @@ import google.generativeai as genai
 from string import Template
 from .model_logger import initiate_logging
 from termcolor import colored
+from storage.database import SQLstore
 
 
 class GeminiAIBrain(IModel):
@@ -18,6 +19,12 @@ class GeminiAIBrain(IModel):
         self.logger.setLevel(logging.DEBUG)
         self.api_key(api_key)
         self.logger.info(f"GeminiAIBrain model: {model}")
+        # Initializing SQLstore
+        self.db = SQLstore()
+        if self.db.get_connection == None:
+            self.db.create_connection()
+            self.db.create_table()
+            self.db.create_task_plan_table()
 
     @property
     def api_key_status(self):
@@ -37,30 +44,51 @@ class GeminiAIBrain(IModel):
 
     def llm_completion(self, prompt, tool):
         try:
+            prompt, user_prompt = prompt
+            task_id = self.db.add_task(user_prompt)
             self.client = genai.GenerativeModel(self.model, tools=[tool])
             completion = self.client.generate_content(
                 prompt,
                 # Force a function call
                 tool_config={"function_calling_config": "ANY"},
             )
+            parsed_output = self.parse_llm_output(completion)
+            self.db.add_task_plan(task_id, parsed_output)
             self._display(completion)
 
-            return completion
+            return parsed_output
 
         except Exception as ai_error:
 
             self.logger.error(f"AIPlatformError: {ai_error}")
 
-    def test_completion(self, prompt):
+    def test_completion(self, prompt, tool):
         """Experimental"""
         try:
-            self.client = genai.GenerativeModel(self.model)
-            completion = self.client.generate_content(
-                prompt,
+            prompt, user_prompt = prompt
+            self.client = genai.GenerativeModel(
+                model_name=self.model, system_instruction=prompt, tools=[tool]
             )
-            return completion
+            chat_session = self.client.start_chat(history=[])
+            while True:
+                user_message = input("You: ")
+                if user_message.lower() in ["exit", "bye", "quit"]:
+                    self.logger.info("Ending chat session")
+                    break
+
+                response = chat_session.send_message(user_message)
+                print(response)
+                print(response.text)
+
+            return response.text
         except Exception as e:
             self.logger.error(f"AIPlatformError: {ai_error}")
+
+    def parse_llm_output(self, llm_output):
+        parsed_output = type(llm_output.candidates[0].content.parts[0]).to_dict(
+            llm_output.candidates[0].content.parts[0]
+        )["function_call"]["args"]
+        return parsed_output
 
     def _display(self, response):
         try:
