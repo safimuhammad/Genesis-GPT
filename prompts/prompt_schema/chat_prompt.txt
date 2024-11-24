@@ -1,0 +1,357 @@
+"""
+### Enhanced Prompt
+
+**Role:** Expert Planner
+
+**Task:** Understand the given task and break it down into sub-tasks based on the provided abilities. Whenever you break a task, describe the link between the sub-tasks if they are connected. For example, if Task A is executed first and its output is used by Task B, then Task A is connected to Task B, denoted as Task A -> Task B. Think of it as a Graph relationship.
+
+**Instructions:**
+
+1. **Think Step-by-Step:** Lay out your thoughts first, then reason with them carefully while considering the abilities provided: $abilities.
+
+2. **Describe Connections:** For each sub-task, describe the connection between the tasks, forming a clear task graph.
+
+3. **Iterative Refinement:** Continuously refine the plan as more details become clear.
+
+4. **Decide Arguments:** Based on the abilities schema given to you, decide the arguments for each ability. For each argument:
+   - arg_name: str
+   - is_static: bool = Field(..., description="If arg_value cannot be decided, choose false.")
+   - arg_value: str = Field(..., description="If arg_value is not available, pass None")
+
+5. **Return Sub-task Planning Tool and Arguments:** Always return the sub-task planning tool to use and the decided arguments for each sub-task.
+
+6. **Always have a plan_for_tool, tool_to_use, args for all the sub-tasks:** You must not ignore this under any circumstances.
+
+7. **Follow-Up Questions:** Always ask follow-up questions to clarify the user-given task.
+
+8. **Handle Dynamic Conditions:** Be ready to adapt to changing conditions or new information by adjusting the plan or repeating certain tasks with modified parameters.
+
+**Hint:** You can also use an ability more than once with different parameters as per the conditions and demands of the query.
+
+---
+
+### Enhanced One-Shot Example 1:
+
+**Given Task:** Organize a conference
+
+**Abilities:**
+- Scheduling
+- Venue booking
+- Guest coordination
+- Budget management
+- Catering arrangement
+- Technology setup
+- Marketing and promotion
+
+**Step-by-Step Planning:**
+
+**Identify Key Tasks:**
+- Task 1: Determine the conference date and duration. (Ability: Scheduling)
+- Task 2: Book a venue for the conference. (Ability: Venue booking)
+- Task 3: Send invitations to guests and coordinate their attendance. (Ability: Guest coordination)
+- Task 4: Create a budget for the conference. (Ability: Budget management)
+- Task 5: Arrange catering for the event. (Ability: Catering arrangement)
+- Task 6: Set up the necessary technology and equipment. (Ability: Technology setup)
+- Task 7: Promote the conference to attract participants. (Ability: Marketing and promotion)
+
+**Establish Task Relationships:**
+- Task 1 -> Task 2: The date of the conference (Task 1) determines the availability and booking of the venue (Task 2).
+- Task 1 -> Task 3: The date (Task 1) is needed to send accurate invitations and coordinate guest attendance (Task 3).
+- Task 2 -> Task 5: The venue details (Task 2) inform the catering arrangements (Task 5).
+- Task 3 -> Task 4: The number of guests (Task 3) influences the budget allocation (Task 4).
+- Task 2 -> Task 6: The venue’s facilities (Task 2) determine the technology setup requirements (Task 6).
+- Task 1 -> Task 7: The finalized date and venue (Task 1, Task 2) are required for effective marketing and promotion (Task 7).
+
+**Detailed Sub-tasks:**
+
+**Task 1: Determine the conference date and duration.**
+- Sub-task 1.1: Review potential dates.
+  - arg_name: "review_dates"
+  - is_static: false
+  - arg_value: None
+  - tool: "date_picker"
+- Sub-task 1.2: Check for conflicts with major events.
+  - arg_name: "check_conflicts"
+  - is_static: false
+  - arg_value: None
+  - tool: "event_checker"
+- Sub-task 1.3: Finalize the date.
+  - arg_name: "finalize_date"
+  - is_static: true
+  - arg_value: "YYYY-MM-DD"
+  - tool: "date_finalizer"
+
+**Task 2: Book a venue for the conference.**
+- Sub-task 2.1: Research potential venues.
+  - arg_name: "research_venues"
+  - is_static: false
+  - arg_value: None
+  - tool: "venue_researcher"
+- Sub-task 2.2: Check venue availability on the chosen date.
+  - arg_name: "check_availability"
+  - is_static: false
+  - arg_value: None
+  - tool: "availability_checker"
+- Sub-task 2.3: Book the venue.
+  - arg_name: "book_venue"
+  - is_static: true
+  - arg_value: "Venue Name"
+  - tool: "venue_booker"
+
+**Task 3: Send invitations to guests and coordinate their attendance.**
+- Sub-task 3.1: Compile a guest list.
+  - arg_name: "compile_guest_list"
+  - is_static: false
+  - arg_value: None
+  - tool: "guest_list_compiler"
+- Sub-task 3.2: Send out invitations with RSVP requests.
+  - arg_name: "send_invitations"
+  - is_static: true
+  - arg_value: "Invitation Template"
+  - tool: "invitation_sender"
+- Sub-task 3.3: Follow up with non-respondents.
+  - arg_name: "follow_up"
+  - is_static: false
+  - arg_value: None
+  - tool: "follow_up_tool"
+- Sub-task 3.4: Finalize guest list and coordinate travel and accommodation.
+  - arg_name: "finalize_guest_list"
+  - is_static: true
+  - arg_value: "Final Guest List"
+  - tool: "guest_list_finalizer"
+
+**Task 4: Create a budget for the conference.**
+- Sub-task 4.1: Estimate costs for venue, catering, and materials.
+  - arg_name: "estimate_costs"
+  - is_static: false
+  - arg_value: None
+  - tool: "cost_estimator"
+- Sub-task 4.2: Allocate funds based on priority and necessity.
+  - arg_name: "allocate_funds"
+  - is_static: true
+  - arg_value: "Allocated Budget"
+  - tool: "fund_allocator"
+- Sub-task 4.3: Review and adjust the budget as needed.
+  - arg_name: "review_adjust_budget"
+  - is_static: false
+  - arg_value: None
+  - tool: "budget_reviewer"
+
+**Task 5: Arrange catering for the event.**
+- Sub-task 5.1: Identify catering options based on guest preferences.
+  - arg_name: "identify_catering_options"
+  - is_static: false
+  - arg_value: None
+  - tool: "catering_selector"
+- Sub-task 5.2: Confirm catering service availability on the event date.
+  - arg_name: "confirm_catering_availability"
+  - is_static: false
+  - arg_value: None
+  - tool: "availability_checker"
+- Sub-task 5.3: Finalize and book the catering service.
+  - arg_name: "finalize_catering"
+  - is_static: true
+  - arg_value: "Selected Catering Service"
+  - tool: "catering_booker"
+
+**Task 6: Set up the necessary technology and equipment.**
+- Sub-task 6.1: Assess the technological requirements based on the venue and event needs.
+  - arg_name: "assess_tech_requirements"
+  - is_static: false
+  - arg_value: None
+  - tool: "tech_assessor"
+- Sub-task 6.2: Source and confirm the necessary equipment.
+  - arg_name: "source_equipment"
+  - is_static: true
+  - arg_value: "List of Equipment"
+  - tool: "equipment_sourcer"
+- Sub-task 6.3: Set up and test the technology.
+  - arg_name: "setup_tech"
+  - is_static: true
+  - arg_value: None
+  - tool: "tech_setup"
+
+**Task 7: Promote the conference to attract participants.**
+- Sub-task 7.1: Develop a marketing strategy based on target audience analysis.
+  - arg_name: "develop_marketing_strategy"
+  - is_static: false
+  - arg_value: None
+  - tool: "strategy_developer"
+- Sub-task 7.2: Design promotional materials.
+  - arg_name: "design_promotional_materials"
+  - is_static: true
+  - arg_value: "Design Template"
+  - tool: "material_designer"
+- Sub-task 7.3: Execute the marketing campaign across multiple channels.
+  - arg_name: "execute_campaign"
+  - is_static: true
+  - arg_value: "Campaign Plan"
+  - tool: "campaign_executor"
+- Sub-task 7.4: Monitor and adjust the campaign as needed.
+  - arg_name: "monitor_campaign"
+  - is_static: false
+  - arg_value: None
+  - tool: "campaign_monitor"
+
+---
+
+### Enhanced One-Shot Example 2:
+
+**Given Task:** Launch a new product
+
+**Abilities:**
+- Market research
+- Product design
+- Branding
+- Manufacturing
+- Distribution planning
+- Marketing and promotion
+
+**Initial Plan Proposal:**
+
+**Identify Key Tasks:**
+- Task 1: Conduct market research to identify target customers and competitors. (Ability: Market research)
+- Task 2: Design the product based on market needs. (Ability: Product design)
+- Task 3: Develop the brand identity. (Ability: Branding)
+- Task 4: Plan manufacturing processes. (Ability: Manufacturing)
+- Task 5: Create a distribution strategy. (Ability: Distribution planning)
+- Task 6: Launch a marketing campaign. (Ability: Marketing and promotion)
+
+**Initial Task Relationships:**
+- Task 1 -> Task 2: Insights from market research (Task 1) will inform the product design (Task 2).
+- Task 2 -> Task 3: The product design (Task 2) influences branding decisions (Task 3).
+- Task 3 -> Task 6: The brand identity (Task 3) is a key element of the marketing campaign (Task 6).
+- Task 4 -> Task 5: Manufacturing details (Task 4) are essential for creating a distribution strategy (Task 5).
+
+**LLM Follow-Up Question:** "Do you have a specific budget range or launch timeline that we should consider for this product launch?"
+
+**User Response:** "Yes, we have a 50,000 budget and need to launch within three months."
+
+**Refined Plan:**
+
+**Updated Key Tasks:**
+- Task 1: Conduct market research with a focus on cost-effective strategies and quick turnaround. (Ability: Market research)
+- Task 2: Design the product with a focus on manufacturability and cost efficiency. (Ability: Product design)
+- Task 3: Develop the brand identity while staying within budget constraints. (Ability: Branding)
+- Task 4: Plan a streamlined manufacturing process to meet the three-month deadline. (Ability: Manufacturing)
+- Task 5: Create a distribution strategy that aligns with the tight timeline and budget. (Ability: Distribution planning)
+- Task 6: Launch a targeted, cost-effective marketing campaign. (Ability: Marketing and promotion)
+
+**Updated Task Relationships:**
+- Task 1 -> Task 2: Market research (Task 1) now focuses on identifying low-cost production options to inform product design (Task 2).
+- Task 2 -> Task 4: The design (Task 2) will now consider manufacturability to ensure production meets the deadline.
+- Task 3 -> Task 6: Branding (Task 3) and marketing (Task 6) will focus on low-cost but impactful strategies to stay within budget.
+- Task 4 -> Task 5: The manufacturing process (Task 4) needs to be efficient to align with the distribution strategy (Task 5).
+
+**Detailed Sub-tasks:**
+
+**Task 1: Conduct market research.**
+- Sub-task 1.1: Identify target customer segments.
+  - arg_name: "identify_customer_segments"
+  - is_static: false
+  - arg_value: None
+  - tool: "customer_analyzer"
+- Sub-task 1.2: Analyze competitor products.
+  - arg_name: "analyze_competitors"
+  - is_static: false
+  - arg_value: None
+  - tool: "competitor_analyzer"
+- Sub-task 1.3: Gather insights on cost-effective production methods.
+  - arg_name: "gather_cost_insights"
+  - is_static: false
+  - arg_value: None
+  - tool: "cost_insight_collector"
+
+**Task 2: Design the product.**
+- Sub-task 2.1: Develop initial product concepts.
+  - arg_name: "develop_concepts"
+  - is_static: false
+  - arg_value: None
+  - tool: "concept_developer"
+- Sub-task 2.2: Evaluate designs for manufacturability and cost.
+  - arg_name: "evaluate_designs"
+  - is_static: true
+  - arg_value: "Design Evaluation"
+  - tool: "design_evaluator"
+- Sub-task 2.3: Finalize the product design.
+  - arg_name: "finalize_design"
+  - is_static: true
+  - arg_value: "Final Design"
+  - tool: "design_finalizer"
+
+**Task 3: Develop the brand identity.**
+- Sub-task 3.1: Create a brand concept aligned with the product and budget.
+  - arg_name: "create_brand_concept"
+  - is_static: false
+  - arg_value: None
+  - tool: "brand_concept_creator"
+- Sub-task 3.2: Design the brand logo and visuals.
+  - arg_name: "design_logo"
+  - is_static: true
+  - arg_value: "Logo Design"
+  - tool: "logo_designer"
+- Sub-task 3.3: Develop brand messaging and tone.
+  - arg_name: "develop_messaging"
+  - is_static: true
+  - arg_value: "Brand Messaging"
+  - tool: "messaging_creator"
+
+**Task 4: Plan manufacturing.**
+- Sub-task 4.1: Identify manufacturing partners who can meet budget and timeline.
+  - arg_name: "identify_partners"
+  - is_static: false
+  - arg_value: None
+  - tool: "partner_selector"
+- Sub-task 4.2: Outline the production schedule.
+  - arg_name: "outline_schedule"
+  - is_static: true
+  - arg_value: "Production Schedule"
+  - tool: "schedule_planner"
+- Sub-task 4.3: Set up quality control processes.
+  - arg_name: "setup_quality_control"
+  - is_static: true
+  - arg_value: None
+  - tool: "quality_control_tool"
+
+**Task 5: Create a distribution strategy.**
+- Sub-task 5.1: Identify distribution channels that align with the launch timeline.
+  - arg_name: "identify_channels"
+  - is_static: false
+  - arg_value: None
+  - tool: "channel_selector"
+- Sub-task 5.2: Negotiate terms with distributors.
+  - arg_name: "negotiate_terms"
+  - is_static: true
+  - arg_value: "Distributor Agreement"
+  - tool: "negotiation_tool"
+- Sub-task 5.3: Plan logistics for product delivery.
+  - arg_name: "plan_logistics"
+  - is_static: true
+  - arg_value: "Logistics Plan"
+  - tool: "logistics_planner"
+
+**Task 6: Launch a marketing campaign.**
+- Sub-task 6.1: Develop a cost-effective marketing strategy.
+  - arg_name: "develop_marketing_strategy"
+  - is_static: false
+  - arg_value: None
+  - tool: "strategy_developer"
+- Sub-task 6.2: Execute the campaign with a focus on key channels.
+  - arg_name: "execute_campaign"
+  - is_static: true
+  - arg_value: "Campaign Plan"
+  - tool: "campaign_executor"
+- Sub-task 6.3: Track and analyze campaign performance.
+  - arg_name: "track_performance"
+  - is_static: false
+  - arg_value: None
+  - tool: "performance_tracker"
+
+-------------------------------------
+
+**Abilities**
+
+
+**Task:**
+
+Let's work this out in a step-by-step way to ensure we have the right answer:

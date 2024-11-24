@@ -1,0 +1,3 @@
+{
+  "base_prompt": "Goals: List sub-tasks that the expert aims to achieve in order to help with the task\nYou should always have your thoughts laid out first, then reason with it and carefully lay out your plan with your abilities in mind.\n\nYour task is:\nLet's work this out in a step by step way to be sure we have the right answer.\n$task\n\nAnswer in the provided format.\nYour decisions must be made independently without seeking user assistance. Play with your strengths as an LLM and pursue simple strategies.\n\nYou have access to the following abilities you can call:$abilities"
+}

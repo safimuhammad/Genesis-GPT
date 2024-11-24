@@ -1,0 +1,87 @@
+{
+  "abilities": [
+    {
+      "tool_name": "read_file",
+      "description": "Ability to read any file in the working directory, can also copy the file content.",
+      "args": {
+        "file_path": "path of the file to be read."
+      },
+      "output": {
+        "data": "data from the file read."
+      }
+    },
+    {
+      "tool_name": "write_file",
+      "description": "Ability to write content to an existing file or can also create new file and write content to it",
+      "args": {
+        "file_path": "path of the file to write in.",
+        "data": "data to write in file."
+      },
+      "output": {
+        "write_path": "file path of the written file."
+      }
+    },
+    {
+      "tool_name": "data_analysis",
+      "description": "Ability to perform data analysis on data.",
+      "args": {
+        "data": "data to perform analysis on"
+      },
+      "output": {
+        "data": "analysis report content"
+      }
+    },
+    {
+      "tool_name": "content_writer",
+      "description": "Ability to write content on any topic",
+      "args": {
+        "data": "topic to write content on"
+      },
+      "output": {
+        "data": "written content"
+      }
+    },
+    {
+      "tool_name": "conversation_agent",
+      "description": "Has the ability to talk with other agents",
+      "args": {
+        "response": "response of agents its talking with."
+      },
+      "output": {
+        "response": "response for the conversation"
+      }
+    },
+    {
+      "tool_name": "conversation_agent2",
+      "description": "Has the ability to talk with other agents",
+      "args": {
+        "topic": "topic of conversation",
+        "response": "response of agents its talking with."
+      },
+      "output": {
+        "response": "response for the conversation"
+      }
+    },
+
+    {
+      "tool_name": "code_reviewer",
+      "description": "Has the ability review the generated code, create test cases and validate the generated code based on test cases",
+      "args": {
+        "code": "generated code"
+      },
+      "output": {
+        "response": "review of the code, mainly mistakes/improvements"
+      }
+    },
+    {
+      "tool_name": "code_generator",
+      "description": "Has the ability to write code run it iteratively based on succesful/unsuccessful execution",
+      "args": {
+        "task": "task to generate code for"
+      },
+      "output": {
+        "response": "Generated code."
+      }
+    }
+  ]
+}

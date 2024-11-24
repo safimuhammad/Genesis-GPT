@@ -3,3 +3,11 @@ db.log
 sql.db
 prompt.log
 __pycache__
+api_key.json
+./output
+./error_correction
+./handlers
+./router
+task_handler.log
+test.py
+./agent/agent_template.py
