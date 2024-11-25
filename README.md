@@ -45,7 +45,7 @@ Follow these steps to get started with Genesis:
 1. Open a terminal on your computer.
 2. Clone the repository using the following command:
    ```bash
-   git clone https://github.com/your-username/Genesis.git
+   git clone https://github.com/safimuhammad/Genesis-GPT.git
    ```
 3. Navigate to the project directory:
    ```bash
