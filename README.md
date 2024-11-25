@@ -1,5 +1,5 @@
 # Genesis-GPT
-
+![Genesis-GPT Banner](genesis-v2.jpg)
 ## Overview
 
 Genesis-GPT is an ambitious project aimed at creating an autonomous agent that leverages industry standards and incorporates the latest functions and features. This project represents a significant step forward in the field of autonomous agents and aims to achieve cutting-edge performance.
