@@ -2,7 +2,7 @@
 ![Genesis Banner](genesis-banner-2.webp)
 
 ---
-## 🌟 Introducing Genesis: A Multi-Agent System for Seamless Collaboration 🌟
+## 🌟Introducing Genesis: A Multi-Agent System for Seamless Collaboration🌟
 
 Genesis is an ambitious project aimed at creating a robust multi-agent system designed for seamless collaboration, leveraging cutting-edge technologies and architectures. Originally inspired by graph-based systems like LangGraph, Genesis overcomes the limitations of tight agent coupling by enabling free-flowing communication and focused collaboration when required.
 
