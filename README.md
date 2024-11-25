@@ -49,7 +49,7 @@ Follow these steps to get started with Genesis:
    ```
 3. Navigate to the project directory:
    ```bash
-   cd Genesis
+   cd Genesis-GPT
    ```
 
 ### Step 2: Download the Repository (Optional)
