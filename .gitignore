@@ -11,3 +11,4 @@ api_key.json
 task_handler.log
 test.py
 ./agent/agent_template.py
+./.vscode

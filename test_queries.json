@@ -1,7 +1,0 @@
-{
-    "queries":[
-        "read from demo.txt and paste it to a new file named test_read_write.txt",
-        "Start a conversation between Agent 1 and Agent 2 on topic global warming",
-        "create a function in python to add two integers"
-    ]
-}

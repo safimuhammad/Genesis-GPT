@@ -22,24 +22,26 @@ class PromptHandler:
         self.logger.setLevel(logging.INFO)
         # self.logger.info("PromptHandler initialized")
 
-        # if file_path and use_txt_loader is False:
-        #     self.base_prompt = self._load_json_file(file_path)["base_prompt"]
+        if file_path and use_txt_loader is False:
+            self.base_prompt = self._load_json_file(file_path)["base_prompt"]
 
-        # elif file_path is None and use_txt_loader is False:
-        #     self.base_prompt = self._load_json_file("prompts/planning_prompt.json")[
-        #         "base_prompt"
-        #     ]
+        elif file_path is None and use_txt_loader is False:
+            self.base_prompt = self._load_json_file(
+                "prompts/prompt_schema/planning_prompt.json"
+            )["base_prompt"]
 
-        # elif file_path is None and use_txt_loader is True:
-        #     self.base_prompt = self._load_txt_file("prompts/planning_prompt.txt")
+        elif file_path is None and use_txt_loader is True:
+            self.base_prompt = self._load_txt_file(
+                "prompts/prompt_schema/message_prompt.txt"
+            )
 
     def _load_json_file(self, file_path):
         with open(file_path, "r") as f:
             try:
                 data = json.load(f)
-                self.logger.info(
-                    f"file name: {format_filename(file_path)} loaded successfully."
-                )
+                # self.logger.info(
+                #     f"file name: {format_filename(file_path)} loaded successfully."
+                # )
                 return data
 
             except ValueError as e:
@@ -51,7 +53,7 @@ class PromptHandler:
                 raise
 
     def _load_txt_file(self, file_path):
-        with open(file_path, "r") as f:
+        with open(file_path, "r", encoding="utf-8") as f:
             try:
                 data = f.read()
                 self.logger.info(
@@ -81,7 +83,7 @@ class PromptHandler:
     def experimental_chat_prompt(self, prompt):
         """experimental chat prompt for user alignment"""
 
-        with open("prompts/chat_prompt.txt", "r") as f:
+        with open("prompts/prompt_schema/chat_prompt.txt", "r") as f:
             base_prompt = f.read()
 
         prompt_temp = Template(f"""{base_prompt}""")
@@ -96,7 +98,7 @@ class PromptHandler:
     def _fetch_abilities(self):
         """auto fetch global abilities and substitute in prompt_temp"""
 
-        load_abilities = self._load_json_file("prompts/abilities.json")
+        load_abilities = self._load_json_file("prompts/prompt_schema/abilities.json")
 
         return load_abilities["abilities"]
 

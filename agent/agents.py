@@ -66,9 +66,20 @@ class ConversationAgent(AgentBase):
                     # print("message", self.message)
 
                     self.message_system.send(message_dict)
+                    ITALIC = "\x1B[3m"
+                    RESET = "\x1B[0m"
+                    RED = "\033[31m"
+                    BLUE = "\033[34m"
+                    GREEN = '\033[32m'
+                    YELLOW = '\033[33m'
+
+                    # Example usage
                     print(
-                        f"\n\n{args_dict.get('from_agent_name', None)}: {args_dict.get('query_response')}\n\n\n\n"
+                        f"\n\n{ITALIC}{YELLOW}{args_dict.get('from_agent_name', None)}{RESET}: {ITALIC}{BLUE}{args_dict.get('query_response')}{RESET}\n\n\n\n"
                     )
+                    # print(
+                    #     f"\n\n{args_dict.get('from_agent_name', None)}: {args_dict.get('query_response')}\n\n\n\n"
+                    # )
                     # print(f"Message sent to {message_dict.get('to_agent')}")
 
                     # # Store the result if needed

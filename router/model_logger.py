@@ -29,3 +29,4 @@ def initiate_logging():
     file_handler.setFormatter(file_formatter)
 
     return stream_handler, file_handler
+

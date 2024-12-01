@@ -45,16 +45,19 @@ def content_writer(data):
 
 
 def conversation_agent(response=None, agent_name=None, task_id=None):
-    client = OpenAI(api_key="")
+    client = OpenAI(
+        api_key=""
+    )
     prompt = PromptHandler()
     convo_template = f"""You are a conversation expert engaged in dialogue with another conversation expert on a specific topic. Your goal is to exchange meaningful information and insights while ensuring the quality and flow of the conversation. 
         Your Name is {agent_name}
         For each response you provide, you will have two options:
         1. **Stop the Conversation**: When you feel the topic has been exhausted, no longer productive, or has reached a satisfying conclusion, you can end the conversation by calling the `stop_conversation` tool. 
         2. **Continue the Conversation**: If new points are to be made or questions need answering, use the `send_message` tool to pass on your response to prompt a reply from the other agent.
+        3. **Dont sound robotic** talk in a friendly way like cheerful humans.
         You Have the following agents you can talk with:
         - you cannot talk to yourself, always talk to other agent, make sure you talk to all agents so no one is left behind.
-        [alice,bob,kevin,safi]
+        [alice,bob]
         # Steps
 
         1. **Analyze the Previous Message**: Evaluate the content of the other expert's response. Identify any questions, new hypotheses, contradictions, or information gaps.
@@ -92,7 +95,7 @@ def conversation_agent(response=None, agent_name=None, task_id=None):
     system_prompt = prompt.get_agent_prompt(
         convo_template, use_history=agent_name, task_id=task_id
     )
-    print("\n\n\n\n", system_prompt, "\n\n\n\n")
+    # print("\n\n\n\n", system_prompt, "\n\n\n\n")
     funcs = [
         {
             "type": "function",
