@@ -6,6 +6,10 @@ from string import Template
 from .model_logger import initiate_logging
 from termcolor import colored
 from storage.database import SQLstore
+from typing_extensions import TypedDict
+import typing
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 
 class GeminiAIBrain(IModel):
@@ -45,7 +49,7 @@ class GeminiAIBrain(IModel):
     def llm_completion(self, prompt, tool):
         try:
             prompt, user_prompt = prompt
-            task_id = self.db.add_task(user_prompt)
+            # task_id = self.db.add_task(user_prompt)
             self.client = genai.GenerativeModel(self.model, tools=[tool])
             completion = self.client.generate_content(
                 prompt,
@@ -53,14 +57,113 @@ class GeminiAIBrain(IModel):
                 tool_config={"function_calling_config": "ANY"},
             )
             parsed_output = self.parse_llm_output(completion)
-            self.db.add_task_plan(task_id, parsed_output)
-            self._display(completion)
+            print(completion)
+            # self.db.add_task_plan(task_id, parsed_output)
+            # self._display(completion)
 
             return parsed_output
 
         except Exception as ai_error:
 
             self.logger.error(f"AIPlatformError: {ai_error}")
+
+    def llm_completion_meta(self, prompt, tool):
+        try:
+            prompt, user_prompt = prompt
+
+            # Define the response schema
+            response_schema = {
+                "type": "object",
+                "properties": {
+                    "from_agent": {
+                        "type": "string",
+                        "description": "Name of the agent sending the message.",
+                    },
+                    "to_agent": {
+                        "type": "string",
+                        "description": "Name of the target agent to receive the message.",
+                    },
+                    "task_id": {
+                        "type": "string",
+                        "description": "A unique identifier for the task/message.",
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Brief description or instruction of the sub-task.",
+                    },
+                    "args": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "arg_name": {
+                                    "type": "string",
+                                    "description": "Name of the argument.",
+                                },
+                                "is_static": {
+                                    "type": "boolean",
+                                    "description": "Set to False if arg_value cannot be decided.",
+                                },
+                                "arg_value": {
+                                    "type": ["string", "null"],
+                                    "description": "If arg_value is not available, set this to None.",
+                                },
+                            },
+                            "required": ["arg_name", "is_static", "arg_value"],
+                        },
+                        "description": "List of arguments required for the sub-task.",
+                    },
+                },
+                "required": ["from_agent", "to_agent", "task_id", "message", "args"],
+            }
+
+            class Arg(TypedDict):
+                arg_name: str = Field(..., description="Name of the argument.")
+                is_static: bool = Field(
+                    ..., description="Set to False if arg_value cannot be decided."
+                )
+                arg_value: str = Field(
+                    ..., description="If arg_value is not available, set this to None."
+                )
+
+            class Message(TypedDict):
+                from_agent: str = Field(
+                    ..., description="Name of the agent sending the message."
+                )
+                to_agent: str = Field(
+                    ..., description="Name of the target agent to receive the message."
+                )
+                task_id: str = Field(
+                    ..., description="A unique identifier for the task/message."
+                )
+                message: str = Field(
+                    ..., description="Brief description or instruction of the sub-task."
+                )
+                args: List[Arg] = Field(
+                    ..., description="List of arguments required for the sub-task."
+                )
+
+            # Initialize the GenerativeModel with the specified tool
+            self.client = genai.GenerativeModel(self.model)
+
+            # Generate content with the defined response schema
+            completion = self.client.generate_content(
+                prompt,
+                generation_config=genai.GenerationConfig(
+                    response_mime_type="application/json",
+                    response_schema=list[Message],
+                ),
+            )
+
+            # Parse the structured output
+            # parsed_output = self.parse_llm_output(completion)
+            print(completion)
+
+            return parsed_output
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def test_completion(self, prompt, tool):
         """Experimental"""
