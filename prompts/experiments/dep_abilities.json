@@ -1,0 +1,217 @@
+{
+    "abilities": [
+      {
+        "tool_name": "read_file",
+        "description": "Ability to read any file in the working directory; can also copy the file content.",
+        "args": {
+          "file_path": {
+            "type": "string",
+            "description": "Path of the file to be read.",
+            "required": true,
+            "example": "/path/to/file.txt"
+          }
+        },
+        "output": {
+          "data": {
+            "type": "string",
+            "description": "Data from the file read.",
+            "example": "File contents here..."
+          }
+        },
+        "errors": [
+          {
+            "code": "FileNotFound",
+            "message": "The specified file does not exist."
+          },
+          {
+            "code": "PermissionDenied",
+            "message": "Insufficient permissions to read the file."
+          },
+          {
+            "code": "InvalidPath",
+            "message": "The provided file path is invalid."
+          }
+        ]
+      },
+      {
+        "tool_name": "write_file",
+        "description": "Ability to write content to an existing file or create a new file and write content to it.",
+        "args": {
+          "file_path": {
+            "type": "string",
+            "description": "Path of the file to write in.",
+            "required": true,
+            "example": "/path/to/file.txt"
+          },
+          "data": {
+            "type": "string",
+            "description": "Data to write in the file.",
+            "required": true,
+            "example": "Sample data to write."
+          }
+        },
+        "output": {
+          "write_path": {
+            "type": "string",
+            "description": "File path of the written file.",
+            "example": "/path/to/file.txt"
+          }
+        },
+        "errors": [
+          {
+            "code": "PermissionDenied",
+            "message": "Insufficient permissions to write to the file."
+          },
+          {
+            "code": "DiskFull",
+            "message": "No space left on device to write the file."
+          },
+          {
+            "code": "InvalidPath",
+            "message": "The provided file path is invalid."
+          }
+        ]
+      },
+      {
+        "tool_name": "data_analysis",
+        "description": "Ability to perform data analysis on provided data.",
+        "args": {
+          "data": {
+            "type": "string",
+            "description": "Data to perform analysis on.",
+            "required": true,
+            "example": "Sample dataset in CSV format."
+          }
+        },
+        "output": {
+          "analysis_report": {
+            "type": "string",
+            "description": "Analysis report content.",
+            "example": "Summary statistics and insights."
+          }
+        },
+        "errors": [
+          {
+            "code": "InvalidDataFormat",
+            "message": "The provided data is in an invalid format."
+          },
+          {
+            "code": "AnalysisError",
+            "message": "An error occurred during data analysis."
+          },
+          {
+            "code": "DataTooLarge",
+            "message": "The provided data exceeds the maximum allowed size."
+          }
+        ]
+      },
+      {
+        "tool_name": "content_writer",
+        "description": "Ability to write content on any given topic.",
+        "args": {
+          "topic": {
+            "type": "string",
+            "description": "Topic to write content on.",
+            "required": true,
+            "example": "The impact of climate change on polar bears."
+          }
+        },
+        "output": {
+          "content": {
+            "type": "string",
+            "description": "Generated written content.",
+            "example": "Polar bears are facing increasing threats due to..."
+          }
+        },
+        "errors": [
+          {
+            "code": "InvalidTopic",
+            "message": "The provided topic is invalid or not supported."
+          },
+          {
+            "code": "ContentGenerationError",
+            "message": "An error occurred during content generation."
+          }
+        ]
+      },
+      {
+        "tool_name": "code_reviewer",
+        "description": "Ability to review code, create test cases, and validate the code based on test cases.",
+        "args": {
+          "code": {
+            "type": "string",
+            "description": "The code to be reviewed.",
+            "required": true,
+            "example": "def add(a, b): return a + b"
+          }
+        },
+        "output": {
+          "review": {
+            "type": "string",
+            "description": "Review of the code, including mistakes and suggested improvements.",
+            "example": "The function lacks error handling for non-integer inputs..."
+          },
+          "test_cases": {
+            "type": "array",
+            "description": "Generated test cases for the code.",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "assert add(1, 2) == 3",
+              "assert add(-1, 1) == 0"
+            ]
+          },
+          "validation_results": {
+            "type": "string",
+            "description": "Results of validating the code against the test cases.",
+            "example": "All test cases passed successfully."
+          }
+        },
+        "errors": [
+          {
+            "code": "CodeSyntaxError",
+            "message": "The provided code contains syntax errors."
+          },
+          {
+            "code": "ReviewError",
+            "message": "An error occurred during code review."
+          }
+        ]
+      },
+      {
+        "tool_name": "code_generator",
+        "description": "Ability to write code and iteratively refine it based on execution results.",
+        "args": {
+          "task": {
+            "type": "string",
+            "description": "Task description to generate code for.",
+            "required": true,
+            "example": "Write a function to calculate the factorial of a number."
+          }
+        },
+        "output": {
+          "code": {
+            "type": "string",
+            "description": "Generated code fulfilling the task.",
+            "example": "def factorial(n): return 1 if n == 0 else n * factorial(n - 1)"
+          },
+          "execution_results": {
+            "type": "string",
+            "description": "Results from running the code, including errors or success messages.",
+            "example": "Code executed successfully with all test cases passing."
+          }
+        },
+        "errors": [
+          {
+            "code": "CodeGenerationError",
+            "message": "An error occurred during code generation."
+          },
+          {
+            "code": "ExecutionError",
+            "message": "Generated code failed during execution."
+          }
+        ]
+      }
+    ]
+  }

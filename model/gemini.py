@@ -1,15 +1,11 @@
 from .interface import IModel  # relative imports
 import logging
-import os
 import google.generativeai as genai
-from string import Template
 from .model_logger import initiate_logging
 from termcolor import colored
 from storage.database import SQLstore
-from typing_extensions import TypedDict
-import typing
-from pydantic import BaseModel, Field
-from typing import List, Optional
+import json
+from .model_functions import lgtm, error_found
 
 
 class GeminiAIBrain(IModel):
@@ -23,10 +19,15 @@ class GeminiAIBrain(IModel):
         self.logger.setLevel(logging.DEBUG)
         self.api_key(api_key)
         self.logger.info(f"GeminiAIBrain model: {model}")
+
+        # for chat completions
+        self.model_config = None
+        self.chat_config = None
+        self.__task_id = None
         # Initializing SQLstore
         self.db = SQLstore()
-        if self.db.get_connection == None:
-            self.db.create_connection()
+        if self.db.get_connection != None:
+            self.db.create_connection
             self.db.create_table()
             self.db.create_task_plan_table()
 
@@ -38,18 +39,17 @@ class GeminiAIBrain(IModel):
         else:
             self.logger.info(f"GeminiAIBrain API KEY already set.")
 
-        return self.__api_key
-
     def api_key(self, api_key):
         """Set API key"""
         self.__api_key = api_key
         genai.configure(api_key=self.__api_key)
         self.logger.info("GOOGLE_API_KEY API KEY set.")
 
-    def llm_completion(self, prompt, tool):
+    # Depreciated
+    def llm_completion_deprecated(self, prompt, tool):
         try:
             prompt, user_prompt = prompt
-            # task_id = self.db.add_task(user_prompt)
+            task_id = self.db.add_task(user_prompt)
             self.client = genai.GenerativeModel(self.model, tools=[tool])
             completion = self.client.generate_content(
                 prompt,
@@ -57,9 +57,8 @@ class GeminiAIBrain(IModel):
                 tool_config={"function_calling_config": "ANY"},
             )
             parsed_output = self.parse_llm_output(completion)
-            print(completion)
-            # self.db.add_task_plan(task_id, parsed_output)
-            # self._display(completion)
+            self.db.add_task_plan(task_id, parsed_output)
+            self._display(completion)
 
             return parsed_output
 
@@ -67,125 +66,62 @@ class GeminiAIBrain(IModel):
 
             self.logger.error(f"AIPlatformError: {ai_error}")
 
-    def llm_completion_meta(self, prompt, tool):
+    def extract_json(self, s):
+        import re
+
+        pattern = r"```json\s*(.*?)```"
+        match = re.search(pattern, s, re.DOTALL)
+        if match:
+            return json.loads(match.group(1).strip())
+        else:
+            # If code fences are not found, return the original string
+            return s.strip()
+
+    def chat_completion(self, user_prompt=None, sys_prompt=None):
         try:
-            prompt, user_prompt = prompt
-
-            # Define the response schema
-            response_schema = {
-                "type": "object",
-                "properties": {
-                    "from_agent": {
-                        "type": "string",
-                        "description": "Name of the agent sending the message.",
-                    },
-                    "to_agent": {
-                        "type": "string",
-                        "description": "Name of the target agent to receive the message.",
-                    },
-                    "task_id": {
-                        "type": "string",
-                        "description": "A unique identifier for the task/message.",
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Brief description or instruction of the sub-task.",
-                    },
-                    "args": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "arg_name": {
-                                    "type": "string",
-                                    "description": "Name of the argument.",
-                                },
-                                "is_static": {
-                                    "type": "boolean",
-                                    "description": "Set to False if arg_value cannot be decided.",
-                                },
-                                "arg_value": {
-                                    "type": ["string", "null"],
-                                    "description": "If arg_value is not available, set this to None.",
-                                },
-                            },
-                            "required": ["arg_name", "is_static", "arg_value"],
-                        },
-                        "description": "List of arguments required for the sub-task.",
-                    },
-                },
-                "required": ["from_agent", "to_agent", "task_id", "message", "args"],
-            }
-
-            class Arg(TypedDict):
-                arg_name: str = Field(..., description="Name of the argument.")
-                is_static: bool = Field(
-                    ..., description="Set to False if arg_value cannot be decided."
+            self.model_config = (
+                genai.GenerativeModel(
+                    model_name=self.model, system_instruction=sys_prompt
                 )
-                arg_value: str = Field(
-                    ..., description="If arg_value is not available, set this to None."
-                )
-
-            class Message(TypedDict):
-                from_agent: str = Field(
-                    ..., description="Name of the agent sending the message."
-                )
-                to_agent: str = Field(
-                    ..., description="Name of the target agent to receive the message."
-                )
-                task_id: str = Field(
-                    ..., description="A unique identifier for the task/message."
-                )
-                message: str = Field(
-                    ..., description="Brief description or instruction of the sub-task."
-                )
-                args: List[Arg] = Field(
-                    ..., description="List of arguments required for the sub-task."
-                )
-
-            # Initialize the GenerativeModel with the specified tool
-            self.client = genai.GenerativeModel(self.model)
-
-            # Generate content with the defined response schema
-            completion = self.client.generate_content(
-                prompt,
-                generation_config=genai.GenerationConfig(
-                    response_mime_type="application/json",
-                    response_schema=list[Message],
-                ),
+                if self.model_config == None
+                else self.model_config
             )
 
-            # Parse the structured output
-            # parsed_output = self.parse_llm_output(completion)
-            print(completion)
-
-            return parsed_output
-
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return None
-
-    def test_completion(self, prompt, tool):
-        """Experimental"""
-        try:
-            prompt, user_prompt = prompt
-            self.client = genai.GenerativeModel(
-                model_name=self.model, system_instruction=prompt, tools=[tool]
+            self.chat_config = (
+                self.model_config.start_chat(enable_automatic_function_calling=True)
+                if self.chat_config == None
+                else self.chat_config
             )
-            chat_session = self.client.start_chat(history=[])
-            while True:
-                user_message = input("You: ")
-                if user_message.lower() in ["exit", "bye", "quit"]:
-                    self.logger.info("Ending chat session")
-                    break
+            self.__task_id = (
+                self.db.add_task(f"``` System prompt \n {sys_prompt}```")
+                if self.__task_id == None
+                else self.__task_id
+            )
+            sub_task_id = self.db.add_task(user_prompt)
+            if user_prompt:
+                response = self.chat_config.send_message(user_prompt)
+                try:
+                    parsed_response = self.extract_json(response.text)
+                    parsed_response_str = str(parsed_response)
+                    self.db.add_task(parsed_response_str, sub_task_id)
+                    return parsed_response
+                except Exception as parse_error:
+                    self.logger.error(f"Error occurred in parsing: {parse_error}")
+        except Exception as ai_error:
+            self.logger.error(f"Error in chat completion: {ai_error}")
 
-                response = chat_session.send_message(user_message)
-                print(response)
-                print(response.text)
+    def feedback_agent(self, sys_prompt, user_prompt):
+        model_config_2 = genai.GenerativeModel(
+            model_name="gemini-2.0-flash-exp",
+            system_instruction=sys_prompt,
+            tools=[lgtm, error_found],
+        )
+        chat_config_2 = model_config_2.start_chat(
+            enable_automatic_function_calling=False
+        )
 
-            return response.text
-        except Exception as e:
-            self.logger.error(f"AIPlatformError: {ai_error}")
+        response = chat_config_2.send_message(user_prompt)
+        return response.text
 
     def parse_llm_output(self, llm_output):
         parsed_output = type(llm_output.candidates[0].content.parts[0]).to_dict(
