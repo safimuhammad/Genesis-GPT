@@ -1,5 +1,5 @@
 from .database import SQLstore
-
+import json
 
 class AgentMemory(SQLstore):
     def create_agent_memory_table(self):

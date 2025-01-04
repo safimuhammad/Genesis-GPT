@@ -19,7 +19,6 @@ class SQLstore(IDatabase):
         self._session_id = str(uuid.uuid4())
 
         self._sqlconnect = self.create_connection
-
         for handler_type in [logging.FileHandler, logging.StreamHandler]:
             handler = (
                 handler_type("db.log")
@@ -64,7 +63,7 @@ class SQLstore(IDatabase):
 
                 self._sqlconnect.execute(
                     f"""CREATE TABLE task(
-                    DATETIME TEXT, SESSION_ID TEXT PRIMARY KEY,TASK_ID TEXT , TASK_INPUT TEXT
+                    DATETIME TEXT, SESSION_ID TEXT,TASK_ID TEXT , TASK_PAYLOAD TEXT, TYPE TEXT
                 )"""
                 )
                 self.logger.info(f"Table created successfully")
@@ -75,35 +74,38 @@ class SQLstore(IDatabase):
         except sqlite3.Error as e:
             self.logger.error(f"Error occured in DB: {e}")
 
-    def add_task(self, task):
+    def add_task(self, task, custom_id=None):
         """creates a task by assigning it unique id and datetime"""
         try:
-            meta_data = task_formatter(self._session_id, task)
+            meta_data = task_formatter(self._session_id, task,custom_id)
             assert isinstance(
                 meta_data, dict
             ), f"data should be in dict not {type(meta_data)} "
             assert all(
                 key in meta_data
-                for key in ["DATETIME", "TASK_ID", "TASK_INPUT", "SESSION_ID"]
-            ), "data should have DATETIME, TASK_ID, and TASK_INPUT keys"  # verifying keys
+                for key in ["DATETIME", "TASK_ID", "TASK_PAYLOAD", "SESSION_ID","TYPE"]
+            ), "data should have DATETIME, TASK_ID,TYPE, and TASK_PAYLOAD keys"  
+            # verifying keys
 
             if self._sqlconnect != None:
                 self._sqlconnect.execute(
-                    """INSERT INTO task (DATETIME,SESSION_ID, TASK_ID, TASK_INPUT)
-                VALUES(?,?,?,?)
+                    """INSERT INTO task (DATETIME,SESSION_ID, TASK_ID, TASK_PAYLOAD, TYPE)
+                VALUES(?,?,?,?,?)
 
                 """,
                     (
                         meta_data["DATETIME"],
                         meta_data["SESSION_ID"],
                         meta_data["TASK_ID"],
-                        meta_data["TASK_INPUT"],
+                        meta_data["TASK_PAYLOAD"],
+                        meta_data["TYPE"]
                     ),
                 )
 
                 self._sqlconnect.commit()
                 self.logger.info(
-                    f"Task_id:{meta_data['TASK_ID']} Task_input:{meta_data['TASK_INPUT']} created at:{meta_data['DATETIME']}"
+                    f"""Task_id:{meta_data['TASK_ID']} Task_input:{meta_data['TASK_PAYLOAD'].split()[:10]} created at:{
+                        meta_data['DATETIME']}"""
                 )
                 return meta_data["TASK_ID"]
             else:

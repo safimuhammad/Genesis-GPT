@@ -2,86 +2,118 @@
   "abilities": [
     {
       "tool_name": "read_file",
-      "description": "Ability to read any file in the working directory, can also copy the file content.",
-      "args": {
-        "file_path": "path of the file to be read."
-      },
+      "description": "Ability to read any file in the working directory; can also copy the file content.",
+      "args": [
+        {
+          "arg_name": "topic",
+          "arg_value": "file_path",
+          "is_static": true
+        }
+      ],
       "output": {
-        "data": "data from the file read."
+        "data": {
+          "name" : "data",
+          "type": "string",
+          "description": "Data from the file read.",
+          "example": "File contents here..."
+        }
+      },
+      "args_example": {
+        "file_path": {
+          "type": "string",
+          "description": "Path of the file to be read.",
+          "required": true,
+          "example": "/path/to/file.txt"
+        }
       }
     },
     {
       "tool_name": "write_file",
-      "description": "Ability to write content to an existing file or can also create new file and write content to it",
-      "args": {
-        "file_path": "path of the file to write in.",
-        "data": "data to write in file."
-      },
+      "description": "Ability to write content to an existing file or create a new file and write content to it.",
+      "args": [
+        {
+          "arg_name": "file_path",
+          "arg_value": "example_file_path",
+          "is_static": true
+        },
+        { "arg_name": "data", "arg_value": "None", "is_static": false }
+      ],
       "output": {
-        "write_path": "file path of the written file."
-      }
-    },
-    {
-      "tool_name": "data_analysis",
-      "description": "Ability to perform data analysis on data.",
-      "args": {
-        "data": "data to perform analysis on"
+        "file_path": {
+          "name": "file_path",
+          "type": "string",
+          "description": "File path of the written file.",
+          "example": "/path/to/file.txt"
+        }
       },
-      "output": {
-        "data": "analysis report content"
-      }
+      "args_example": {
+        "file_path": {
+          "type": "string",
+          "description": "Path of the file to write in.",
+          "required": true,
+          "is_static": true,
+          "example": "/path/to/file.txt"
+        },
+        "data": {
+          "type": "string",
+          "description": "Data to write in the file.",
+          "required": true,
+          "is_static": false,
+          "example": "Sample data to write."
+        }
+      },
+      "errors": [
+        {
+          "code": "PermissionDenied",
+          "message": "Insufficient permissions to write to the file."
+        },
+        {
+          "code": "DiskFull",
+          "message": "No space left on device to write the file."
+        },
+        {
+          "code": "InvalidPath",
+          "message": "The provided file path is invalid."
+        }
+      ]
     },
     {
       "tool_name": "content_writer",
-      "description": "Ability to write content on any topic",
-      "args": {
-        "data": "topic to write content on"
-      },
+      "description": "Ability to write content on any given topic.",
+      "args": [
+        {
+          "arg_name": "topic",
+          "arg_value": "topic",
+          "is_static": true
+        }
+      ],
       "output": {
-        "data": "written content"
-      }
-    },
-    {
-      "tool_name": "conversation_agent",
-      "description": "Has the ability to talk with other agents",
-      "args": {
-        "response": "response of agents its talking with."
+        "data": {
+          "name": "data",
+          "type": "string",
+          "description": "Generated written content.",
+          "example": "Polar bears are facing increasing threats due to..."
+        }
       },
-      "output": {
-        "response": "response for the conversation"
-      }
-    },
-    {
-      "tool_name": "conversation_agent2",
-      "description": "Has the ability to talk with other agents",
-      "args": {
-        "topic": "topic of conversation",
-        "response": "response of agents its talking with."
+      "args_example": {
+        "topic": {
+          "type": "string",
+          "description": "Topic to write content on.",
+          "required": true,
+          "is_static": true,
+          "example": "The impact of climate change on polar bears."
+        }
       },
-      "output": {
-        "response": "response for the conversation"
-      }
-    },
-
-    {
-      "tool_name": "code_reviewer",
-      "description": "Has the ability review the generated code, create test cases and validate the generated code based on test cases",
-      "args": {
-        "code": "generated code"
-      },
-      "output": {
-        "response": "review of the code, mainly mistakes/improvements"
-      }
-    },
-    {
-      "tool_name": "code_generator",
-      "description": "Has the ability to write code run it iteratively based on succesful/unsuccessful execution",
-      "args": {
-        "task": "task to generate code for"
-      },
-      "output": {
-        "response": "Generated code."
-      }
+      "errors": [
+        {
+          "code": "InvalidTopic",
+          "message": "The provided topic is invalid or not supported."
+        },
+        {
+          "code": "ContentGenerationError",
+          "message": "An error occurred during content generation."
+        }
+      ]
     }
   ]
 }

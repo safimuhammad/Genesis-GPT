@@ -1,5 +1,5 @@
 from .agent_template_v2 import AgentBase
-from .tools import read_file, write_file, conversation_agent
+from .tools import read_file, write_file, conversation_agent, content_writer
 from prompts.prompt_handler import PromptHandler
 import json
 
@@ -11,7 +11,7 @@ class ReadAgent(AgentBase):
     def execute(self):
         kwargs = self.resolve_message()
         result = read_file(**kwargs)
-        self.data_store[self.message.get("to_agent")] = result
+        self.send_output(result)
         print(result)
 
 
@@ -19,10 +19,15 @@ class WriteAgent(AgentBase):
     def execute(self):
         kwargs = self.resolve_message()
         result = write_file(**kwargs)
-        self.data_store[self.message.get("to_agent")] = result
+        self.send_output(result)
         print(result)
-
-
+class ContentWriter(AgentBase):
+    def execute(self):
+        kwargs = self.resolve_message()
+        result = content_writer(**kwargs)
+        self.send_output(result)
+        print(result)
+       
 class ConversationAgent(AgentBase):
 
     @add_memory_decorator
@@ -61,27 +66,8 @@ class ConversationAgent(AgentBase):
                         ],
                     }
 
-                    # Send the message using your message system
-                    # print("args_dict", args_dict),
-                    # print("message", self.message)
-
                     self.message_system.send(message_dict)
-                    ITALIC = "\x1B[3m"
-                    RESET = "\x1B[0m"
-                    RED = "\033[31m"
-                    BLUE = "\033[34m"
-                    GREEN = '\033[32m'
-                    YELLOW = '\033[33m'
-
-                    # Example usage
-                    print(
-                        f"\n\n{ITALIC}{YELLOW}{args_dict.get('from_agent_name', None)}{RESET}: {ITALIC}{BLUE}{args_dict.get('query_response')}{RESET}\n\n\n\n"
-                    )
-                    # print(
-                    #     f"\n\n{args_dict.get('from_agent_name', None)}: {args_dict.get('query_response')}\n\n\n\n"
-                    # )
-                    # print(f"Message sent to {message_dict.get('to_agent')}")
-
+                   
                     # # Store the result if needed
                     self.data_store[self.message.get("to_agent")] = args_dict.get(
                         "query_response"
@@ -95,11 +81,3 @@ class ConversationAgent(AgentBase):
             print("No function calls in the response.")
 
 
-"""
-class ConversationAgent(AgentBase):
-    prompt = PromptHandler()
-    def execute(self):
-        user_prompt = "hello xyz"
-        system_prompt = prompt.create_agent_prompt(user_prompt,use_history='write_agent')
-        result = convo_agent(system_prompt)
-"""

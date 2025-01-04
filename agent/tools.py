@@ -3,15 +3,15 @@ import os
 
 import time
 from openai import OpenAI
+import google.generativeai as genai
 
 from prompts.prompt_handler import PromptHandler
-
 
 def read_file(file_path=None):
     output_dir = "output"
     full_path = os.path.join(output_dir, file_path)
 
-    print(f"Function_name: read_file , args: file_path: {full_path}")
+    # print(f"Function_name: read_file , args: file_path: {full_path}")
 
     try:
         if not os.path.exists(output_dir):
@@ -20,7 +20,7 @@ def read_file(file_path=None):
         if not os.path.exists(full_path):
             raise FileNotFoundError(f"File {full_path} does not exist")
 
-        if full_path.endswith(".txt"):
+        if full_path.endswith(".txt") or full_path.endswith(".md"):  # Added support for .md files
             with open(full_path, "r") as file:
                 data = file.read()
         elif full_path.endswith(".json"):
@@ -35,19 +35,30 @@ def read_file(file_path=None):
         return {"data": None}
 
 
-def content_writer(data):
-    with open("output\data_copy.txt", "r") as f:
-        content = f.read()
-    print(content)
-    print(f"Function_name: content_writer , args: data: {data}")
-    data = f"hello this is a content written by mock content writer on {data}"
-    return {"data": content}
+def content_writer(topic):
+    
+    system_prompt = f"""
+    You are a specialized writing assistant. Your task is to create a comprehensive, well-structured report on a given topic. The report should begin with an introduction that clearly states the topic and its significance. Follow this with a background section that provides historical context or foundational information. Then discuss current trends, notable challenges, key stakeholders, and any recent developments relevant to the topic.
+    As you compose the report, use clear and concise language, logical organization, and accurate facts. Incorporate headings and subheadings to break down the information into easily digestible sections. Support your points with examples, data, or credible references where possible.
+    Conclude the report with a concise summary of key insights, potential solutions or recommendations, and areas where further research or action may be needed. Ensure the tone is professional, informative, and neutral.
+    Your overall goal is to deliver a report that is both informative and accessible to a reader who may be new to the subject.
+    Stick to the topic at all times.
+    Your Topic is:
+    {topic}
+    """
+    model = genai.GenerativeModel(
+                    model_name="gemini-1.5-flash",
+                    system_instruction=system_prompt)
+
+    response = model.generate_content(
+                topic,
+            )
+
+    return {"data": response.text}
 
 
 def conversation_agent(response=None, agent_name=None, task_id=None):
-    client = OpenAI(
-        api_key=""
-    )
+    client = OpenAI(api_key="")
     prompt = PromptHandler()
     convo_template = f"""You are a conversation expert engaged in dialogue with another conversation expert on a specific topic. Your goal is to exchange meaningful information and insights while ensuring the quality and flow of the conversation. 
         Your Name is {agent_name}
@@ -179,5 +190,7 @@ def write_file(file_path=None, data=None):
     except Exception as e:
         message = f"Error writing file: {e}"
 
-    print(f"Function_name: write_file , args: file_path: {full_path}, data: `{data}` ")
+    # print(f"Function_name: write_file , args: file_path: {full_path}, data: `{data}` ")
     return {"message": message}
+
+

@@ -3,7 +3,7 @@ from abc import ABCMeta, abstractstaticmethod ,abstractmethod,abstractclassmetho
 class IModel(metaclass=ABCMeta):
 
     @abstractmethod
-    def llm_completion(self,prompt):
+    def  chat_completion(self,prompt):
         """Makes a call to llm for completion"""
         pass
 
