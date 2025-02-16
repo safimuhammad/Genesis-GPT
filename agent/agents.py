@@ -12,21 +12,22 @@ class ReadAgent(AgentBase):
         kwargs = self.resolve_message()
         result = read_file(**kwargs)
         self.send_output(result)
-        print(result)
+        print(f"\033[3m\033[34m{result}\033[0m")
 
 
 class WriteAgent(AgentBase):
     def execute(self):
         kwargs = self.resolve_message()
+        print(kwargs,'write agent')
         result = write_file(**kwargs)
         self.send_output(result)
-        print(result)
+        print(f"\033[3m\033[34m{result}\033[0m")
 class ContentWriter(AgentBase):
     def execute(self):
         kwargs = self.resolve_message()
         result = content_writer(**kwargs)
         self.send_output(result)
-        print(result)
+        print(f"\033[3m\033[34m{result}\033[0m")
        
 class ConversationAgent(AgentBase):
 

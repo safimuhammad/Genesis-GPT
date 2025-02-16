@@ -5,27 +5,21 @@
       "description": "Ability to read any file in the working directory; can also copy the file content.",
       "args": [
         {
-          "arg_name": "topic",
-          "arg_value": "file_path",
-          "is_static": true
+          "arg_name": "file_path",
+          "arg_value": "example.txt",
+          "is_static": true,
+          "example": "/path/to/file.txt",
+          "description": "Path of the file to be read."
         }
       ],
-      "output": {
-        "data": {
-          "name" : "data",
-          "type": "string",
-          "description": "Data from the file read.",
-          "example": "File contents here..."
+      "output": [
+        {
+          "out_name": "data",
+          "out_value": "data from the file read.",
+          "example": "This is the data fetched from the given file....",
+          "description": "Data fetched from the given file."
         }
-      },
-      "args_example": {
-        "file_path": {
-          "type": "string",
-          "description": "Path of the file to be read.",
-          "required": true,
-          "example": "/path/to/file.txt"
-        }
-      }
+      ]
     },
     {
       "tool_name": "write_file",
@@ -33,47 +27,25 @@
       "args": [
         {
           "arg_name": "file_path",
-          "arg_value": "example_file_path",
-          "is_static": true
+          "arg_value": "write_to_file_example.txt",
+          "is_static": true,
+          "example": "/path/to/file.txt",
+          "description": "path of the file to create or overwrite content to."
         },
-        { "arg_name": "data", "arg_value": "None", "is_static": false }
+        {
+          "arg_name": "data",
+          "arg_value": "None",
+          "is_static": false,
+          "example": "data to put in file",
+          "description": "data that goes is to be written in file."
+        }
       ],
-      "output": {
-        "file_path": {
-          "name": "file_path",
-          "type": "string",
+      "output": [
+        {
+          "out_name": "file_path",
+          "out_value": "new_file.txt",
           "description": "File path of the written file.",
           "example": "/path/to/file.txt"
-        }
-      },
-      "args_example": {
-        "file_path": {
-          "type": "string",
-          "description": "Path of the file to write in.",
-          "required": true,
-          "is_static": true,
-          "example": "/path/to/file.txt"
-        },
-        "data": {
-          "type": "string",
-          "description": "Data to write in the file.",
-          "required": true,
-          "is_static": false,
-          "example": "Sample data to write."
-        }
-      },
-      "errors": [
-        {
-          "code": "PermissionDenied",
-          "message": "Insufficient permissions to write to the file."
-        },
-        {
-          "code": "DiskFull",
-          "message": "No space left on device to write the file."
-        },
-        {
-          "code": "InvalidPath",
-          "message": "The provided file path is invalid."
         }
       ]
     },
@@ -84,34 +56,17 @@
         {
           "arg_name": "topic",
           "arg_value": "topic",
-          "is_static": true
-        }
-      ],
-      "output": {
-        "data": {
-          "name": "data",
-          "type": "string",
-          "description": "Generated written content.",
-          "example": "Polar bears are facing increasing threats due to..."
-        }
-      },
-      "args_example": {
-        "topic": {
-          "type": "string",
-          "description": "Topic to write content on.",
-          "required": true,
           "is_static": true,
+          "description": "Topic to write content on.",
           "example": "The impact of climate change on polar bears."
         }
-      },
-      "errors": [
+      ],
+      "output": [
         {
-          "code": "InvalidTopic",
-          "message": "The provided topic is invalid or not supported."
-        },
-        {
-          "code": "ContentGenerationError",
-          "message": "An error occurred during content generation."
+          "out_name": "data",
+          "out_value": "generated content on given topic....",
+          "example": "Polar bears are facing increasing threats due to...",
+          "description": "Generated written content."
         }
       ]
     }

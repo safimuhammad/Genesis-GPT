@@ -1,6 +1,6 @@
 from .database import SQLstore
 import json
-
+import sqlite3
 class AgentMemory(SQLstore):
     def create_agent_memory_table(self):
         """Create a table inside the SQLite DB to store agent memory with the new schema."""
