@@ -37,7 +37,7 @@ Genesis represents a significant step forward in the field of autonomous agents.
 
 ---
 ## More Use Cases
-https://excalidraw.com/#json=kz4FPJFjKx92Gz71zeaRw,OuoDiEvmd7Vn-xeF1H26OQ [Check more examples]
+<img src="genesis-orchestrator.png" alt="Genesis-GPT Banner" width="800" height="800" style="background: transparent;">
 
 -------
 ## Getting Started
