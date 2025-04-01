@@ -36,7 +36,10 @@ Genesis represents a significant step forward in the field of autonomous agents.
 <img src="genesis-v2.jpg" alt="Genesis-GPT Banner" width="600" height="800">
 
 ---
+## More Use Cases
+https://excalidraw.com/#json=kz4FPJFjKx92Gz71zeaRw,OuoDiEvmd7Vn-xeF1H26OQ [Check more examples]
 
+-------
 ## Getting Started
 
 Follow these steps to get started with Genesis:
